@@ -55,7 +55,7 @@ public:
 	void RenderScene()
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+		m_terrain.Render(*m_pGameCamera);
 
 	}
 
@@ -142,6 +142,8 @@ private:
 
 	void InitTerrain()
 	{
+		float WorldScale = 4.0f;
+		m_terrain.InitTerrain(WorldScale);
 		m_terrain.LoadFromFile("..\\data\\heightmap.save");
 	}
 
