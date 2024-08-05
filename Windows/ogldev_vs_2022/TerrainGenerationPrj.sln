@@ -1,0 +1,412 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Include", "Include", "{1F4F3822-5B5B-46A8-B8E6-253BB09CFB10}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Include\glfx.h = ..\..\Include\glfx.h
+		..\..\Include\ogldev.h = ..\..\Include\ogldev.h
+		..\..\Include\ogldev_app.h = ..\..\Include\ogldev_app.h
+		..\..\Include\ogldev_array_2d.h = ..\..\Include\ogldev_array_2d.h
+		..\..\Include\ogldev_atb.h = ..\..\Include\ogldev_atb.h
+		..\..\Include\ogldev_backend.h = ..\..\Include\ogldev_backend.h
+		..\..\Include\ogldev_base_app.h = ..\..\Include\ogldev_base_app.h
+		..\..\Include\ogldev_basic_glfw_camera.h = ..\..\Include\ogldev_basic_glfw_camera.h
+		..\..\Include\ogldev_basic_mesh.h = ..\..\Include\ogldev_basic_mesh.h
+		..\..\Include\ogldev_bezier_curve_technique.h = ..\..\Include\ogldev_bezier_curve_technique.h
+		..\..\Include\ogldev_callbacks.h = ..\..\Include\ogldev_callbacks.h
+		..\..\Include\ogldev_camera.h = ..\..\Include\ogldev_camera.h
+		..\..\Include\ogldev_cubemap_texture.h = ..\..\Include\ogldev_cubemap_texture.h
+		..\..\Include\ogldev_engine_common.h = ..\..\Include\ogldev_engine_common.h
+		..\..\Include\ogldev_flat_passthru_technique.h = ..\..\Include\ogldev_flat_passthru_technique.h
+		..\..\Include\ogldev_framebuffer.h = ..\..\Include\ogldev_framebuffer.h
+		..\..\Include\ogldev_glfw.h = ..\..\Include\ogldev_glfw.h
+		..\..\Include\ogldev_glfw_backend.h = ..\..\Include\ogldev_glfw_backend.h
+		..\..\Include\ogldev_glut_backend.h = ..\..\Include\ogldev_glut_backend.h
+		..\..\Include\ogldev_guitex_technique.h = ..\..\Include\ogldev_guitex_technique.h
+		..\..\Include\ogldev_gui_texture.h = ..\..\Include\ogldev_gui_texture.h
+		..\..\Include\ogldev_io_buffer.h = ..\..\Include\ogldev_io_buffer.h
+		..\..\Include\ogldev_keys.h = ..\..\Include\ogldev_keys.h
+		..\..\Include\ogldev_lights_common.h = ..\..\Include\ogldev_lights_common.h
+		..\..\Include\ogldev_material.h = ..\..\Include\ogldev_material.h
+		..\..\Include\ogldev_math_3d.h = ..\..\Include\ogldev_math_3d.h
+		..\..\Include\ogldev_mesh_common.h = ..\..\Include\ogldev_mesh_common.h
+		..\..\Include\ogldev_new_lighting.h = ..\..\Include\ogldev_new_lighting.h
+		..\..\Include\ogldev_passthru_vec2_technique.h = ..\..\Include\ogldev_passthru_vec2_technique.h
+		..\..\Include\ogldev_phong_renderer.h = ..\..\Include\ogldev_phong_renderer.h
+		..\..\Include\ogldev_pipeline.h = ..\..\Include\ogldev_pipeline.h
+		..\..\Include\ogldev_random_texture.h = ..\..\Include\ogldev_random_texture.h
+		..\..\Include\ogldev_screen_quad.h = ..\..\Include\ogldev_screen_quad.h
+		..\..\Include\ogldev_shadow_cube_map_fbo.h = ..\..\Include\ogldev_shadow_cube_map_fbo.h
+		..\..\Include\ogldev_shadow_mapping_technique.h = ..\..\Include\ogldev_shadow_mapping_technique.h
+		..\..\Include\ogldev_shadow_mapping_technique_point_light.h = ..\..\Include\ogldev_shadow_mapping_technique_point_light.h
+		..\..\Include\ogldev_shadow_map_fbo.h = ..\..\Include\ogldev_shadow_map_fbo.h
+		..\..\Include\ogldev_shadow_map_offset_texture.h = ..\..\Include\ogldev_shadow_map_offset_texture.h
+		..\..\Include\ogldev_skinned_mesh.h = ..\..\Include\ogldev_skinned_mesh.h
+		..\..\Include\ogldev_skinning_technique.h = ..\..\Include\ogldev_skinning_technique.h
+		..\..\Include\ogldev_skybox.h = ..\..\Include\ogldev_skybox.h
+		..\..\Include\ogldev_skybox_technique.h = ..\..\Include\ogldev_skybox_technique.h
+		..\..\Include\ogldev_skydome.h = ..\..\Include\ogldev_skydome.h
+		..\..\Include\ogldev_skydome_technique.h = ..\..\Include\ogldev_skydome_technique.h
+		..\..\Include\ogldev_sprite_technique.h = ..\..\Include\ogldev_sprite_technique.h
+		..\..\Include\ogldev_texture.h = ..\..\Include\ogldev_texture.h
+		..\..\Include\ogldev_tex_technique.h = ..\..\Include\ogldev_tex_technique.h
+		..\..\Include\ogldev_types.h = ..\..\Include\ogldev_types.h
+		..\..\Include\ogldev_util.h = ..\..\Include\ogldev_util.h
+		..\..\Include\ogldev_vertex_buffer.h = ..\..\Include\ogldev_vertex_buffer.h
+		..\..\Include\ogldev_vulkan.h = ..\..\Include\ogldev_vulkan.h
+		..\..\Include\ogldev_vulkan_core.h = ..\..\Include\ogldev_vulkan_core.h
+		..\..\Include\ogldev_win32_control.h = ..\..\Include\ogldev_win32_control.h
+		..\..\Include\ogldev_world_transform.h = ..\..\Include\ogldev_world_transform.h
+		..\..\Include\ogldev_xcb_control.h = ..\..\Include\ogldev_xcb_control.h
+		..\..\Include\technique.h = ..\..\Include\technique.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rdparty", "3rdparty", "{41A0EE6E-7F4F-4650-B76B-3024308136F3}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Include\3rdparty\stb_image.h = ..\..\Include\3rdparty\stb_image.h
+		..\..\Include\3rdparty\stb_image_write.h = ..\..\Include\3rdparty\stb_image_write.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shaders", "Shaders", "{2CAB346B-6660-46F9-91AB-2CC238300A31}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Common\Shaders\bezier_curve.fs = ..\..\Common\Shaders\bezier_curve.fs
+		..\..\Common\Shaders\bezier_curve.tcs = ..\..\Common\Shaders\bezier_curve.tcs
+		..\..\Common\Shaders\bezier_curve.tes = ..\..\Common\Shaders\bezier_curve.tes
+		..\..\Common\Shaders\bezier_curve.vs = ..\..\Common\Shaders\bezier_curve.vs
+		..\..\Common\Shaders\billboard.fs = ..\..\Common\Shaders\billboard.fs
+		..\..\Common\Shaders\billboard.gs = ..\..\Common\Shaders\billboard.gs
+		..\..\Common\Shaders\billboard.vs = ..\..\Common\Shaders\billboard.vs
+		..\..\Common\Shaders\empty.fs = ..\..\Common\Shaders\empty.fs
+		..\..\Common\Shaders\flat_passthru.fs = ..\..\Common\Shaders\flat_passthru.fs
+		..\..\Common\Shaders\flat_passthru.vs = ..\..\Common\Shaders\flat_passthru.vs
+		..\..\Common\Shaders\guitex.fs = ..\..\Common\Shaders\guitex.fs
+		..\..\Common\Shaders\guitex.vs = ..\..\Common\Shaders\guitex.vs
+		..\..\Common\Shaders\lighting_new.fs = ..\..\Common\Shaders\lighting_new.fs
+		..\..\Common\Shaders\lighting_new.vs = ..\..\Common\Shaders\lighting_new.vs
+		..\..\Common\Shaders\lighting_new_to_gs.vs = ..\..\Common\Shaders\lighting_new_to_gs.vs
+		..\..\Common\Shaders\passthru.gs = ..\..\Common\Shaders\passthru.gs
+		..\..\Common\Shaders\passthru_vec2.vs = ..\..\Common\Shaders\passthru_vec2.vs
+		..\..\Common\Shaders\passthru_vec3.vs = ..\..\Common\Shaders\passthru_vec3.vs
+		..\..\Common\Shaders\quad_tess.tcs = ..\..\Common\Shaders\quad_tess.tcs
+		..\..\Common\Shaders\quad_tess.tes = ..\..\Common\Shaders\quad_tess.tes
+		..\..\Common\Shaders\shadow_map.vs = ..\..\Common\Shaders\shadow_map.vs
+		..\..\Common\Shaders\shadow_map_point_light.fs = ..\..\Common\Shaders\shadow_map_point_light.fs
+		..\..\Common\Shaders\shadow_map_point_light.vs = ..\..\Common\Shaders\shadow_map_point_light.vs
+		..\..\Common\Shaders\skinning.vs = ..\..\Common\Shaders\skinning.vs
+		..\..\Common\Shaders\skybox.fs = ..\..\Common\Shaders\skybox.fs
+		..\..\Common\Shaders\skybox.vs = ..\..\Common\Shaders\skybox.vs
+		..\..\Common\Shaders\skydome.fs = ..\..\Common\Shaders\skydome.fs
+		..\..\Common\Shaders\skydome.vs = ..\..\Common\Shaders\skydome.vs
+		..\..\Common\Shaders\sprite.fs = ..\..\Common\Shaders\sprite.fs
+		..\..\Common\Shaders\sprite.vs = ..\..\Common\Shaders\sprite.vs
+		..\..\Common\Shaders\tex.fs = ..\..\Common\Shaders\tex.fs
+		..\..\Common\Shaders\tex.vs = ..\..\Common\Shaders\tex.vs
+		..\..\Common\Shaders\wireframe_on_mesh.gs = ..\..\Common\Shaders\wireframe_on_mesh.gs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TerrainRendering", "TerrainRendering", "{ACA68C35-1336-405A-85F8-EA7D433F6478}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain1", "Terrain1\Terrain1.vcxproj", "{66919A9A-AF4D-4169-B514-5CA3183A565A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F6553386-4E78-450B-A98D-D17DE590F6AB}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Common\camera.cpp = ..\..\Common\camera.cpp
+		..\..\Common\cubemap_texture.cpp = ..\..\Common\cubemap_texture.cpp
+		..\..\Common\glut_backend.cpp = ..\..\Common\glut_backend.cpp
+		..\..\Common\io_buffer.cpp = ..\..\Common\io_buffer.cpp
+		..\..\Common\math_3d.cpp = ..\..\Common\math_3d.cpp
+		..\..\Common\ogldev_all.cpp = ..\..\Common\ogldev_all.cpp
+		..\..\Common\ogldev_app.cpp = ..\..\Common\ogldev_app.cpp
+		..\..\Common\ogldev_atb.cpp = ..\..\Common\ogldev_atb.cpp
+		..\..\Common\ogldev_backend.cpp = ..\..\Common\ogldev_backend.cpp
+		..\..\Common\ogldev_base_app.cpp = ..\..\Common\ogldev_base_app.cpp
+		..\..\Common\ogldev_basic_glfw_camera.cpp = ..\..\Common\ogldev_basic_glfw_camera.cpp
+		..\..\Common\ogldev_basic_mesh.cpp = ..\..\Common\ogldev_basic_mesh.cpp
+		..\..\Common\ogldev_bezier_curve_technique.cpp = ..\..\Common\ogldev_bezier_curve_technique.cpp
+		..\..\Common\ogldev_flat_passthru_technique.cpp = ..\..\Common\ogldev_flat_passthru_technique.cpp
+		..\..\Common\ogldev_framebuffer.cpp = ..\..\Common\ogldev_framebuffer.cpp
+		..\..\Common\ogldev_glfw.cpp = ..\..\Common\ogldev_glfw.cpp
+		..\..\Common\ogldev_glfw_backend.cpp = ..\..\Common\ogldev_glfw_backend.cpp
+		..\..\Common\ogldev_guitex_technique.cpp = ..\..\Common\ogldev_guitex_technique.cpp
+		..\..\Common\ogldev_gui_texture.cpp = ..\..\Common\ogldev_gui_texture.cpp
+		..\..\Common\ogldev_new_lighting.cpp = ..\..\Common\ogldev_new_lighting.cpp
+		..\..\Common\ogldev_passthru_vec2_technique.cpp = ..\..\Common\ogldev_passthru_vec2_technique.cpp
+		..\..\Common\ogldev_phong_renderer.cpp = ..\..\Common\ogldev_phong_renderer.cpp
+		..\..\Common\ogldev_screen_quad.cpp = ..\..\Common\ogldev_screen_quad.cpp
+		..\..\Common\ogldev_shadow_cube_map_fbo.cpp = ..\..\Common\ogldev_shadow_cube_map_fbo.cpp
+		..\..\Common\ogldev_shadow_mapping_technique.cpp = ..\..\Common\ogldev_shadow_mapping_technique.cpp
+		..\..\Common\ogldev_shadow_mapping_technique_point_light.cpp = ..\..\Common\ogldev_shadow_mapping_technique_point_light.cpp
+		..\..\Common\ogldev_shadow_map_fbo.cpp = ..\..\Common\ogldev_shadow_map_fbo.cpp
+		..\..\Common\ogldev_shadow_map_offset_texture.cpp = ..\..\Common\ogldev_shadow_map_offset_texture.cpp
+		..\..\Common\ogldev_skinned_mesh.cpp = ..\..\Common\ogldev_skinned_mesh.cpp
+		..\..\Common\ogldev_skinning_technique.cpp = ..\..\Common\ogldev_skinning_technique.cpp
+		..\..\Common\ogldev_skybox.cpp = ..\..\Common\ogldev_skybox.cpp
+		..\..\Common\ogldev_skybox_technique.cpp = ..\..\Common\ogldev_skybox_technique.cpp
+		..\..\Common\ogldev_skydome.cpp = ..\..\Common\ogldev_skydome.cpp
+		..\..\Common\ogldev_skydome_technique.cpp = ..\..\Common\ogldev_skydome_technique.cpp
+		..\..\Common\ogldev_sprite_technique.cpp = ..\..\Common\ogldev_sprite_technique.cpp
+		..\..\Common\ogldev_stb_image.cpp = ..\..\Common\ogldev_stb_image.cpp
+		..\..\Common\ogldev_texture.cpp = ..\..\Common\ogldev_texture.cpp
+		..\..\Common\ogldev_tex_technique.cpp = ..\..\Common\ogldev_tex_technique.cpp
+		..\..\Common\ogldev_util.cpp = ..\..\Common\ogldev_util.cpp
+		..\..\Common\ogldev_vulkan.cpp = ..\..\Common\ogldev_vulkan.cpp
+		..\..\Common\ogldev_vulkan_core.cpp = ..\..\Common\ogldev_vulkan_core.cpp
+		..\..\Common\ogldev_win32_control.cpp = ..\..\Common\ogldev_win32_control.cpp
+		..\..\Common\ogldev_world_transform.cpp = ..\..\Common\ogldev_world_transform.cpp
+		..\..\Common\ogldev_xcb_control.cpp = ..\..\Common\ogldev_xcb_control.cpp
+		..\..\Common\pipeline.cpp = ..\..\Common\pipeline.cpp
+		..\..\Common\random_texture.cpp = ..\..\Common\random_texture.cpp
+		..\..\Common\technique.cpp = ..\..\Common\technique.cpp
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain2", "Terrain2\Terrain2.vcxproj", "{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain3", "Terrain3\Terrain3.vcxproj", "{323C0C1A-1DB1-46F3-95ED-382CB51965F2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain4", "Terrain4\Terrain4.vcxproj", "{12F52B93-9AA2-4194-BC54-50064EB6A66B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain5", "Terrain5\Terrain5.vcxproj", "{9A399A55-990C-417F-B558-4A9DDFAE71A8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain5.1", "Terrain5.1\Terrain5.1.vcxproj", "{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain6", "Terrain6\Terrain6.vcxproj", "{6B8A5879-9F19-4821-8A8A-511A0C646081}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain7", "Terrain7\Terrain7.vcxproj", "{4660764C-DFEC-4C4D-9397-F9167BACBB54}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain8", "Terrain8\Terrain8.vcxproj", "{003240A2-C2A6-48F5-AC06-F5093876199A}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain9", "Terrain9\Terrain9.vcxproj", "{95BD4928-BDB9-4F83-8F1A-F6F60441F623}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain10", "Terrain10\Terrain10.vcxproj", "{494730C7-08C3-4D83-8853-245A346B1739}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain11", "Terrain11\Terrain11.vcxproj", "{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain12", "Terrain12\Terrain12.vcxproj", "{8DE98965-5CDC-425F-944D-5F25E55A8609}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenGL", "OpenGL", "{598FEE6D-9610-46D8-A821-39733CDAB3DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FreetypeGL", "FreetypeGL", "{5676DE34-CCBB-449E-9588-BA22483E2351}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Common\FreetypeGL\font-manager.h = ..\..\Common\FreetypeGL\font-manager.h
+		..\..\Common\FreetypeGL\freetypeGL.cpp = ..\..\Common\FreetypeGL\freetypeGL.cpp
+		..\..\Common\FreetypeGL\freetypeGL.h = ..\..\Common\FreetypeGL\freetypeGL.h
+		..\..\Common\FreetypeGL\markup.h = ..\..\Common\FreetypeGL\markup.h
+		..\..\Common\FreetypeGL\mat4.c = ..\..\Common\FreetypeGL\mat4.c
+		..\..\Common\FreetypeGL\mat4.h = ..\..\Common\FreetypeGL\mat4.h
+		..\..\Common\FreetypeGL\opengl.h = ..\..\Common\FreetypeGL\opengl.h
+		..\..\Common\FreetypeGL\shader.c = ..\..\Common\FreetypeGL\shader.c
+		..\..\Common\FreetypeGL\shader.h = ..\..\Common\FreetypeGL\shader.h
+		..\..\Common\FreetypeGL\text-buffer.h = ..\..\Common\FreetypeGL\text-buffer.h
+		..\..\Common\FreetypeGL\texture-atlas.h = ..\..\Common\FreetypeGL\texture-atlas.h
+		..\..\Common\FreetypeGL\texture-font.h = ..\..\Common\FreetypeGL\texture-font.h
+		..\..\Common\FreetypeGL\v3f-t2f-c4f.frag = ..\..\Common\FreetypeGL\v3f-t2f-c4f.frag
+		..\..\Common\FreetypeGL\v3f-t2f-c4f.vert = ..\..\Common\FreetypeGL\v3f-t2f-c4f.vert
+		..\..\Common\FreetypeGL\vec234.h = ..\..\Common\FreetypeGL\vec234.h
+		..\..\Common\FreetypeGL\vector.h = ..\..\Common\FreetypeGL\vector.h
+		..\..\Common\FreetypeGL\vertex-attribute.h = ..\..\Common\FreetypeGL\vertex-attribute.h
+		..\..\Common\FreetypeGL\vertex-buffer.h = ..\..\Common\FreetypeGL\vertex-buffer.h
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LibOgldev", "LibOgldev\LibOgldev.vcxproj", "{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{7BC13D79-0BF3-4B89-A22B-400E8D50EAD4}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RayMarching", "RayMarching\RayMarching.vcxproj", "{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}"
+	ProjectSection(ProjectDependencies) = postProject
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4} = {82C3A59C-96DB-4B6A-9D4B-E08723D016F4}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain13", "Terrain13\Terrain13.vcxproj", "{9E5A2442-701E-42E1-A252-9094E4308A8D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TerrainWater", "TerrainWater\Terrain_water.vcxproj", "{9D07DEB5-FA82-4C36-ADF5-D9227489653C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Terrain14", "Terrain14\Terrain14.vcxproj", "{D6C450A9-DD41-4D42-B90E-EC904156AA93}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66919A9A-AF4D-4169-B514-5CA3183A565A}.Debug|x64.ActiveCfg = Debug|x64
+		{66919A9A-AF4D-4169-B514-5CA3183A565A}.Debug|x64.Build.0 = Debug|x64
+		{66919A9A-AF4D-4169-B514-5CA3183A565A}.Debug|x86.ActiveCfg = Debug|Win32
+		{66919A9A-AF4D-4169-B514-5CA3183A565A}.Debug|x86.Build.0 = Debug|Win32
+		{66919A9A-AF4D-4169-B514-5CA3183A565A}.Release|x64.ActiveCfg = Release|x64
+		{66919A9A-AF4D-4169-B514-5CA3183A565A}.Release|x64.Build.0 = Release|x64
+		{66919A9A-AF4D-4169-B514-5CA3183A565A}.Release|x86.ActiveCfg = Release|Win32
+		{66919A9A-AF4D-4169-B514-5CA3183A565A}.Release|x86.Build.0 = Release|Win32
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}.Debug|x64.ActiveCfg = Debug|x64
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}.Debug|x64.Build.0 = Debug|x64
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}.Debug|x86.ActiveCfg = Debug|Win32
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}.Debug|x86.Build.0 = Debug|Win32
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}.Release|x64.ActiveCfg = Release|x64
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}.Release|x64.Build.0 = Release|x64
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}.Release|x86.ActiveCfg = Release|Win32
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}.Release|x86.Build.0 = Release|Win32
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2}.Debug|x64.ActiveCfg = Debug|x64
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2}.Debug|x64.Build.0 = Debug|x64
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2}.Debug|x86.ActiveCfg = Debug|Win32
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2}.Debug|x86.Build.0 = Debug|Win32
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2}.Release|x64.ActiveCfg = Release|x64
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2}.Release|x64.Build.0 = Release|x64
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2}.Release|x86.ActiveCfg = Release|Win32
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2}.Release|x86.Build.0 = Release|Win32
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B}.Debug|x64.ActiveCfg = Debug|x64
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B}.Debug|x64.Build.0 = Debug|x64
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B}.Debug|x86.ActiveCfg = Debug|Win32
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B}.Debug|x86.Build.0 = Debug|Win32
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B}.Release|x64.ActiveCfg = Release|x64
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B}.Release|x64.Build.0 = Release|x64
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B}.Release|x86.ActiveCfg = Release|Win32
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B}.Release|x86.Build.0 = Release|Win32
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8}.Debug|x64.ActiveCfg = Debug|x64
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8}.Debug|x64.Build.0 = Debug|x64
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8}.Debug|x86.ActiveCfg = Debug|Win32
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8}.Debug|x86.Build.0 = Debug|Win32
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8}.Release|x64.ActiveCfg = Release|x64
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8}.Release|x64.Build.0 = Release|x64
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8}.Release|x86.ActiveCfg = Release|Win32
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8}.Release|x86.Build.0 = Release|Win32
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}.Debug|x64.ActiveCfg = Debug|x64
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}.Debug|x64.Build.0 = Debug|x64
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}.Debug|x86.ActiveCfg = Debug|Win32
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}.Debug|x86.Build.0 = Debug|Win32
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}.Release|x64.ActiveCfg = Release|x64
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}.Release|x64.Build.0 = Release|x64
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}.Release|x86.ActiveCfg = Release|Win32
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC}.Release|x86.Build.0 = Release|Win32
+		{6B8A5879-9F19-4821-8A8A-511A0C646081}.Debug|x64.ActiveCfg = Debug|x64
+		{6B8A5879-9F19-4821-8A8A-511A0C646081}.Debug|x64.Build.0 = Debug|x64
+		{6B8A5879-9F19-4821-8A8A-511A0C646081}.Debug|x86.ActiveCfg = Debug|Win32
+		{6B8A5879-9F19-4821-8A8A-511A0C646081}.Debug|x86.Build.0 = Debug|Win32
+		{6B8A5879-9F19-4821-8A8A-511A0C646081}.Release|x64.ActiveCfg = Release|x64
+		{6B8A5879-9F19-4821-8A8A-511A0C646081}.Release|x64.Build.0 = Release|x64
+		{6B8A5879-9F19-4821-8A8A-511A0C646081}.Release|x86.ActiveCfg = Release|Win32
+		{6B8A5879-9F19-4821-8A8A-511A0C646081}.Release|x86.Build.0 = Release|Win32
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54}.Debug|x64.ActiveCfg = Debug|x64
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54}.Debug|x64.Build.0 = Debug|x64
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54}.Debug|x86.ActiveCfg = Debug|Win32
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54}.Debug|x86.Build.0 = Debug|Win32
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54}.Release|x64.ActiveCfg = Release|x64
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54}.Release|x64.Build.0 = Release|x64
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54}.Release|x86.ActiveCfg = Release|Win32
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54}.Release|x86.Build.0 = Release|Win32
+		{003240A2-C2A6-48F5-AC06-F5093876199A}.Debug|x64.ActiveCfg = Debug|x64
+		{003240A2-C2A6-48F5-AC06-F5093876199A}.Debug|x64.Build.0 = Debug|x64
+		{003240A2-C2A6-48F5-AC06-F5093876199A}.Debug|x86.ActiveCfg = Debug|Win32
+		{003240A2-C2A6-48F5-AC06-F5093876199A}.Debug|x86.Build.0 = Debug|Win32
+		{003240A2-C2A6-48F5-AC06-F5093876199A}.Release|x64.ActiveCfg = Release|x64
+		{003240A2-C2A6-48F5-AC06-F5093876199A}.Release|x64.Build.0 = Release|x64
+		{003240A2-C2A6-48F5-AC06-F5093876199A}.Release|x86.ActiveCfg = Release|Win32
+		{003240A2-C2A6-48F5-AC06-F5093876199A}.Release|x86.Build.0 = Release|Win32
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623}.Debug|x64.ActiveCfg = Debug|x64
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623}.Debug|x64.Build.0 = Debug|x64
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623}.Debug|x86.ActiveCfg = Debug|Win32
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623}.Debug|x86.Build.0 = Debug|Win32
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623}.Release|x64.ActiveCfg = Release|x64
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623}.Release|x64.Build.0 = Release|x64
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623}.Release|x86.ActiveCfg = Release|Win32
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623}.Release|x86.Build.0 = Release|Win32
+		{494730C7-08C3-4D83-8853-245A346B1739}.Debug|x64.ActiveCfg = Debug|x64
+		{494730C7-08C3-4D83-8853-245A346B1739}.Debug|x64.Build.0 = Debug|x64
+		{494730C7-08C3-4D83-8853-245A346B1739}.Debug|x86.ActiveCfg = Debug|Win32
+		{494730C7-08C3-4D83-8853-245A346B1739}.Debug|x86.Build.0 = Debug|Win32
+		{494730C7-08C3-4D83-8853-245A346B1739}.Release|x64.ActiveCfg = Release|x64
+		{494730C7-08C3-4D83-8853-245A346B1739}.Release|x64.Build.0 = Release|x64
+		{494730C7-08C3-4D83-8853-245A346B1739}.Release|x86.ActiveCfg = Release|Win32
+		{494730C7-08C3-4D83-8853-245A346B1739}.Release|x86.Build.0 = Release|Win32
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}.Debug|x64.ActiveCfg = Debug|x64
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}.Debug|x64.Build.0 = Debug|x64
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}.Debug|x86.ActiveCfg = Debug|Win32
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}.Debug|x86.Build.0 = Debug|Win32
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}.Release|x64.ActiveCfg = Release|x64
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}.Release|x64.Build.0 = Release|x64
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}.Release|x86.ActiveCfg = Release|Win32
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}.Release|x86.Build.0 = Release|Win32
+		{8DE98965-5CDC-425F-944D-5F25E55A8609}.Debug|x64.ActiveCfg = Debug|x64
+		{8DE98965-5CDC-425F-944D-5F25E55A8609}.Debug|x64.Build.0 = Debug|x64
+		{8DE98965-5CDC-425F-944D-5F25E55A8609}.Debug|x86.ActiveCfg = Debug|Win32
+		{8DE98965-5CDC-425F-944D-5F25E55A8609}.Debug|x86.Build.0 = Debug|Win32
+		{8DE98965-5CDC-425F-944D-5F25E55A8609}.Release|x64.ActiveCfg = Release|x64
+		{8DE98965-5CDC-425F-944D-5F25E55A8609}.Release|x64.Build.0 = Release|x64
+		{8DE98965-5CDC-425F-944D-5F25E55A8609}.Release|x86.ActiveCfg = Release|Win32
+		{8DE98965-5CDC-425F-944D-5F25E55A8609}.Release|x86.Build.0 = Release|Win32
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}.Debug|x64.ActiveCfg = Debug|x64
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}.Debug|x64.Build.0 = Debug|x64
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}.Debug|x86.ActiveCfg = Debug|Win32
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}.Debug|x86.Build.0 = Debug|Win32
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}.Release|x64.ActiveCfg = Release|x64
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}.Release|x64.Build.0 = Release|x64
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}.Release|x86.ActiveCfg = Release|Win32
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4}.Release|x86.Build.0 = Release|Win32
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}.Debug|x64.ActiveCfg = Debug|x64
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}.Debug|x64.Build.0 = Debug|x64
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}.Debug|x86.ActiveCfg = Debug|Win32
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}.Debug|x86.Build.0 = Debug|Win32
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}.Release|x64.ActiveCfg = Release|x64
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}.Release|x64.Build.0 = Release|x64
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}.Release|x86.ActiveCfg = Release|Win32
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737}.Release|x86.Build.0 = Release|Win32
+		{9E5A2442-701E-42E1-A252-9094E4308A8D}.Debug|x64.ActiveCfg = Debug|x64
+		{9E5A2442-701E-42E1-A252-9094E4308A8D}.Debug|x64.Build.0 = Debug|x64
+		{9E5A2442-701E-42E1-A252-9094E4308A8D}.Debug|x86.ActiveCfg = Debug|Win32
+		{9E5A2442-701E-42E1-A252-9094E4308A8D}.Debug|x86.Build.0 = Debug|Win32
+		{9E5A2442-701E-42E1-A252-9094E4308A8D}.Release|x64.ActiveCfg = Release|x64
+		{9E5A2442-701E-42E1-A252-9094E4308A8D}.Release|x64.Build.0 = Release|x64
+		{9E5A2442-701E-42E1-A252-9094E4308A8D}.Release|x86.ActiveCfg = Release|Win32
+		{9E5A2442-701E-42E1-A252-9094E4308A8D}.Release|x86.Build.0 = Release|Win32
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C}.Debug|x64.ActiveCfg = Debug|x64
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C}.Debug|x64.Build.0 = Debug|x64
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C}.Debug|x86.ActiveCfg = Debug|Win32
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C}.Debug|x86.Build.0 = Debug|Win32
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C}.Release|x64.ActiveCfg = Release|x64
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C}.Release|x64.Build.0 = Release|x64
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C}.Release|x86.ActiveCfg = Release|Win32
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C}.Release|x86.Build.0 = Release|Win32
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93}.Debug|x64.ActiveCfg = Debug|x64
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93}.Debug|x64.Build.0 = Debug|x64
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93}.Debug|x86.ActiveCfg = Debug|Win32
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93}.Debug|x86.Build.0 = Debug|Win32
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93}.Release|x64.ActiveCfg = Release|x64
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93}.Release|x64.Build.0 = Release|x64
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93}.Release|x86.ActiveCfg = Release|Win32
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1F4F3822-5B5B-46A8-B8E6-253BB09CFB10} = {598FEE6D-9610-46D8-A821-39733CDAB3DD}
+		{41A0EE6E-7F4F-4650-B76B-3024308136F3} = {1F4F3822-5B5B-46A8-B8E6-253BB09CFB10}
+		{2CAB346B-6660-46F9-91AB-2CC238300A31} = {598FEE6D-9610-46D8-A821-39733CDAB3DD}
+		{66919A9A-AF4D-4169-B514-5CA3183A565A} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{F6553386-4E78-450B-A98D-D17DE590F6AB} = {598FEE6D-9610-46D8-A821-39733CDAB3DD}
+		{99087CF3-5756-4535-B1A4-2E2D0DFF54E7} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{323C0C1A-1DB1-46F3-95ED-382CB51965F2} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{12F52B93-9AA2-4194-BC54-50064EB6A66B} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{9A399A55-990C-417F-B558-4A9DDFAE71A8} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{C368E117-F7A7-46B7-B77F-2C5BC10B75AC} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{6B8A5879-9F19-4821-8A8A-511A0C646081} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{4660764C-DFEC-4C4D-9397-F9167BACBB54} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{003240A2-C2A6-48F5-AC06-F5093876199A} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{95BD4928-BDB9-4F83-8F1A-F6F60441F623} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{494730C7-08C3-4D83-8853-245A346B1739} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{8DE98965-5CDC-425F-944D-5F25E55A8609} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{5676DE34-CCBB-449E-9588-BA22483E2351} = {F6553386-4E78-450B-A98D-D17DE590F6AB}
+		{82C3A59C-96DB-4B6A-9D4B-E08723D016F4} = {598FEE6D-9610-46D8-A821-39733CDAB3DD}
+		{7BC13D79-0BF3-4B89-A22B-400E8D50EAD4} = {598FEE6D-9610-46D8-A821-39733CDAB3DD}
+		{FE3E1B47-47D2-49B6-BABE-3E6D777B7737} = {7BC13D79-0BF3-4B89-A22B-400E8D50EAD4}
+		{9E5A2442-701E-42E1-A252-9094E4308A8D} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{9D07DEB5-FA82-4C36-ADF5-D9227489653C} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+		{D6C450A9-DD41-4D42-B90E-EC904156AA93} = {ACA68C35-1336-405A-85F8-EA7D433F6478}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {690F8FBC-BD4E-482C-BBD9-5CB7D2D801AC}
+	EndGlobalSection
+EndGlobal
