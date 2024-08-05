@@ -142,7 +142,7 @@ private:
 
 	void InitTerrain()
 	{
-	
+
 	}
 
 	GLFWwindow* window = NULL;
@@ -177,7 +177,17 @@ static void MouseButtonCallback(GLFWwindow* window, int Button, int Action, int 
 
 int main(int argc, char** argv)
 {
+	app = new TerrainDemo1();
+	app->Init();
 
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	glFrontFace(GL_CW);
+	glCullFace(GL_BACK);
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_DEPTH_TEST);
+
+	app->Run();
+	delete app;
 
 	return 0;
 }
