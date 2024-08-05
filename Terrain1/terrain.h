@@ -8,6 +8,16 @@
 #include "terrain_technique.h"
 
 
+class BaseTerrain 
+{
+public:
+	BaseTerrain(){}
 
+	void LoadFromFile(const char* pFilename);
+
+protected:
+	int m_terrainSize = 0;
+	Array2D<float> m_heihgtMap;
+};
 
 #endif

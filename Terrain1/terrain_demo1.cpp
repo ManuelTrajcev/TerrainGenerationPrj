@@ -142,12 +142,13 @@ private:
 
 	void InitTerrain()
 	{
-
+		m_terrain.LoadFromFile("..\\data\\heightmap.save");
 	}
 
 	GLFWwindow* window = NULL;
 	BasicCamera* m_pGameCamera = NULL;
 	bool m_isWireframe = false;
+	BaseTerrain m_terrain;
 };
 
 TerrainDemo1* app = NULL;

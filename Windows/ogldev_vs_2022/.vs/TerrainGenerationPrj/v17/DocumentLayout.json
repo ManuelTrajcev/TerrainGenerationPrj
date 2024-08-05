@@ -6,16 +6,16 @@
       "AbsoluteMoniker": "D:0:0:{66919A9A-AF4D-4169-B514-5CA3183A565A}|Terrain1\\Terrain1.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\terrain_demo1.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{66919A9A-AF4D-4169-B514-5CA3183A565A}|Terrain1\\Terrain1.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\triangle_list.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{66919A9A-AF4D-4169-B514-5CA3183A565A}|Terrain1\\Terrain1.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\triangle_list.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{66919A9A-AF4D-4169-B514-5CA3183A565A}|Terrain1\\Terrain1.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66919A9A-AF4D-4169-B514-5CA3183A565A}|Terrain1\\Terrain1.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\terrain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66919A9A-AF4D-4169-B514-5CA3183A565A}|Terrain1\\Terrain1.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\triangle_list.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{66919A9A-AF4D-4169-B514-5CA3183A565A}|Terrain1\\Terrain1.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\triangle_list.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{66919A9A-AF4D-4169-B514-5CA3183A565A}|Terrain1\\Terrain1.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Common\\technique.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -44,7 +44,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "triangle_list.h",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\triangle_list.h",
               "RelativeDocumentMoniker": "..\\..\\Terrain1\\triangle_list.h",
@@ -57,33 +57,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "terrain.h",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\terrain.h",
               "RelativeDocumentMoniker": "..\\..\\Terrain1\\terrain.h",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\terrain.h",
               "RelativeToolTip": "..\\..\\Terrain1\\terrain.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA8AAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-08-05T14:35:53.808Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "terrain.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\terrain.cpp",
               "RelativeDocumentMoniker": "..\\..\\Terrain1\\terrain.cpp",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\terrain.cpp",
               "RelativeToolTip": "..\\..\\Terrain1\\terrain.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAATAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA3AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-05T14:35:26.731Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "triangle_list.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\triangle_list.cpp",
               "RelativeDocumentMoniker": "..\\..\\Terrain1\\triangle_list.cpp",
@@ -102,7 +102,7 @@
               "RelativeDocumentMoniker": "..\\..\\Terrain1\\terrain_demo1.cpp",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain1\\terrain_demo1.cpp",
               "RelativeToolTip": "..\\..\\Terrain1\\terrain_demo1.cpp",
-              "ViewState": "AQIAAKkAAAAAAAAAAAAcwLcAAAAUAAAA",
+              "ViewState": "AQIAAIAAAAAAAAAAAAAkwIcAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-05T14:26:15.179Z",
               "EditorCaption": ""
