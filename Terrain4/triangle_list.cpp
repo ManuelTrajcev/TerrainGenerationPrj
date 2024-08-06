@@ -1,22 +1,3 @@
-/*
-
-        Copyright 2023 Etay Meiri
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-
 #include <stdio.h>
 #include <vector>
 
@@ -89,9 +70,7 @@ void TriangleList::CreateGLState()
     glVertexAttribPointer(POS_LOC, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(NumFloats * sizeof(float)));
     NumFloats += 3;
 
-    glEnableVertexAttribArray(TEX_LOC);
-    glVertexAttribPointer(TEX_LOC, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(NumFloats * sizeof(float)));
-    NumFloats += 2;
+   
 }
 
 
@@ -121,8 +100,7 @@ void TriangleList::Vertex::InitVertex(const BaseTerrain* pTerrain, int x, int z)
 	Pos = Vector3f(x * WorldScale, y, z * WorldScale);
 	
     float Size = (float)pTerrain->GetSize();
-    float TextureScale = pTerrain->GetTextureScale();
-    Tex = Vector2f(TextureScale * (float)x / Size, TextureScale * (float)z / Size);	
+
 }
 
 
