@@ -5,7 +5,9 @@ void FaultFormationTerrain::CreateFaultFormation(int TerrainSize, int Iterations
 	m_minHeight = MinHeight;
 	m_maxHeight = MaxHeight;
 
-	m_heightMap.InitArray2D(m_terrainSize, m_terrainSize, this);
+	m_terrainTech.Enable();
+	m_terrainTech.SetMinMaxHeight(MinHeight, MaxHeight);
+	m_heightMap.InitArray2D(TerrainSize, TerrainSize, 0.0f);
 	CreateFaultFormationInternal(Iterations, MinHeight, MaxHeight);
 	m_heightMap.Normalize(MinHeight, MaxHeight);
 	m_triangleList.CreateTriangleList(m_terrainSize, m_terrainSize, this);
@@ -15,7 +17,7 @@ void FaultFormationTerrain::CreateFaultFormation(int TerrainSize, int Iterations
 void FaultFormationTerrain::CreateFaultFormationInternal(int Iterations, float MinHeight, float MaxHeight) {
 	float DeltaHeight = MaxHeight - MinHeight;
 
-	for (int CurIter = 0; CurIter < Iterations; Iterations++)
+	for (int CurIter = 0; CurIter < Iterations; CurIter++)
 	{
 		float IterationRatio = ((float)CurIter / (float)Iterations);
 		float Height = MaxHeight - IterationRatio * DeltaHeight;		//Decreese in iterations
@@ -34,7 +36,7 @@ void FaultFormationTerrain::CreateFaultFormationInternal(int Iterations, float M
 				int CrossProduct = DirX_in * DirZ - DirX * DirZ_in;		//CrossProduct=Vektor normalen na ramninata na dva vektora
 
 				if (CrossProduct > 0) {		//Se zgolemuva visinata na tockata na koja se naogja CrossProduct vektorot
-					float CurHeight = m_heightMap.Get(x, z);		
+					float CurHeight = m_heightMap.Get(x, z);
 					m_heightMap.Set(x, z, CurHeight + Height);		//Problem, ako izleze od MaxHeight --> m_heightNao.Normalize() 
 				}
 			}
