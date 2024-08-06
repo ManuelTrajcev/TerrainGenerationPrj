@@ -1,6 +1,6 @@
 #include "fault_formation_terrain.h"
 
-void FaultFormationTerrain::CreateFaultFormation(int TerrainSize, int Iterations, float MinHeight, float MaxHeight) {
+void FaultFormationTerrain::CreateFaultFormation(int TerrainSize, int Iterations, float MinHeight, float MaxHeight, float Filter) {
 	m_terrainSize = TerrainSize;
 	m_minHeight = MinHeight;
 	m_maxHeight = MaxHeight;
@@ -8,13 +8,13 @@ void FaultFormationTerrain::CreateFaultFormation(int TerrainSize, int Iterations
 	m_terrainTech.Enable();
 	m_terrainTech.SetMinMaxHeight(MinHeight, MaxHeight);
 	m_heightMap.InitArray2D(TerrainSize, TerrainSize, 0.0f);
-	CreateFaultFormationInternal(Iterations, MinHeight, MaxHeight);
+	CreateFaultFormationInternal(Iterations, MinHeight, MaxHeight, Filter);
 	m_heightMap.Normalize(MinHeight, MaxHeight);
 	m_triangleList.CreateTriangleList(m_terrainSize, m_terrainSize, this);
 
 }
 
-void FaultFormationTerrain::CreateFaultFormationInternal(int Iterations, float MinHeight, float MaxHeight) {
+void FaultFormationTerrain::CreateFaultFormationInternal(int Iterations, float MinHeight, float MaxHeight, float Filter) {
 	float DeltaHeight = MaxHeight - MinHeight;
 
 	for (int CurIter = 0; CurIter < Iterations; CurIter++)
@@ -42,6 +42,8 @@ void FaultFormationTerrain::CreateFaultFormationInternal(int Iterations, float M
 			}
 		}
 	}
+
+	ApplyFIRFilter(Filter);
 }
 
 void FaultFormationTerrain::GetRandomTerrainPoints(TerainPoint& p1, TerainPoint& p2) {		//2 random terrain points vo range na terrain size
@@ -59,5 +61,21 @@ void FaultFormationTerrain::GetRandomTerrainPoints(TerainPoint& p1, TerainPoint&
 			assert(0);
 		}
 	} while (p1.IsEqual(p2));
+}
 
+void FaultFormationTerrain::ApplyFIRFilter(float Filter) {		//Iteracija niz site tocki, izmaznuvanje taka sto se zema sredna vrednost od dve sosedni tocki
+	for (int z = 0; z < m_terrainSize; z++) {
+		float PrevVal = m_heightMap.Get(0, z);
+		for (int x = 1; x < m_terrainSize; x++) {
+			PrevVal = FIRFilterSinglePoint(x, z, PrevVal, Filter);
+		}
+	}
+}
+
+float FaultFormationTerrain::FIRFilterSinglePoint(int x, int z, float PrevVal, float Filter)	//smoothend value for single point
+{
+	float CurVal = m_heightMap.Get(x, z);
+	float NewVal = Filter * PrevVal + (1 - Filter) * CurVal;
+	m_heightMap.Set(x, z, NewVal);
+	return NewVal;
 }

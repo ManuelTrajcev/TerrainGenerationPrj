@@ -7,7 +7,7 @@ class FaultFormationTerrain :public BaseTerrain {
 public:
 	FaultFormationTerrain() {}
 
-	void CreateFaultFormation(int TerrainSize, int Iterations, float MinHeight, float MaxHeight);
+	void CreateFaultFormation(int TerrainSize, int Iterations, float MinHeight, float MaxHeight, float Filter);
 private:
 	struct TerainPoint {
 		int x = 0;
@@ -20,8 +20,10 @@ private:
 			return ((x == p.x) && (z == p.z));
 		}
 	};
-	void CreateFaultFormationInternal(int Iterations, float MinHeight, float MaxHeight);
+	void CreateFaultFormationInternal(int Iterations, float MinHeight, float MaxHeight, float Filter);
 	void GetRandomTerrainPoints(TerainPoint& p1, TerainPoint& p2);
+	void ApplyFIRFilter(float Filter);
+	float FIRFilterSinglePoint(int x, int z, float PrevFractalVal, float Filter);
 };
 
 #endif

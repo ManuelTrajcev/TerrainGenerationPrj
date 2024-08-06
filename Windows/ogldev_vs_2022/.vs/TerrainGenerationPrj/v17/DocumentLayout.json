@@ -3,13 +3,13 @@
   "WorkspaceRootPath": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Windows\\ogldev_vs_2022\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}|Terrain2\\Terrain2.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\terrain_demo2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}|Terrain2\\Terrain2.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\fault_formation_terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}|Terrain2\\Terrain2.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\fault_formation_terrain.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99087CF3-5756-4535-B1A4-2E2D0DFF54E7}|Terrain2\\Terrain2.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\terrain_demo2.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,7 +19,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,39 +31,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "terrain_demo2.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\terrain_demo2.cpp",
               "RelativeDocumentMoniker": "..\\..\\Terrain2\\terrain_demo2.cpp",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\terrain_demo2.cpp",
               "RelativeToolTip": "..\\..\\Terrain2\\terrain_demo2.cpp",
-              "ViewState": "AQIAADAAAAAAAAAAAAD4vz4AAAANAAAA",
+              "ViewState": "AQIAAEUAAAAAAAAAAAD4v08AAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-06T09:46:51.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "fault_formation_terrain.h",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\fault_formation_terrain.h",
               "RelativeDocumentMoniker": "..\\..\\Terrain2\\fault_formation_terrain.h",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\fault_formation_terrain.h",
               "RelativeToolTip": "..\\..\\Terrain2\\fault_formation_terrain.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAlAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-08-06T09:43:49.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "fault_formation_terrain.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\fault_formation_terrain.cpp",
               "RelativeDocumentMoniker": "..\\..\\Terrain2\\fault_formation_terrain.cpp",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain2\\fault_formation_terrain.cpp",
               "RelativeToolTip": "..\\..\\Terrain2\\fault_formation_terrain.cpp",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAABMAAAA3AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAIwBAAAABuAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-06T09:43:41.973Z",
               "EditorCaption": ""
