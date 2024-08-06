@@ -28,7 +28,7 @@ class TriangleList {
     struct Vertex {
         Vector3f Pos;
         Vector2f Tex;
-        
+        Vector3f Normal = Vector3f(0.0f, 0.0f, 0.0f);
 
         void InitVertex(const BaseTerrain* pTerrain, int x, int z);
     };
@@ -38,7 +38,7 @@ class TriangleList {
 	void PopulateBuffers(const BaseTerrain* pTerrain);
     void InitVertices(const BaseTerrain* pTerrain, std::vector<Vertex>& Vertices);
     void InitIndices(std::vector<uint>& Indices);
-    
+    void CalcNormals(std::vector<Vertex>& Vertices, std::vector<uint>& Indices);
 
     int m_width = 0;
     int m_depth = 0;
