@@ -1,23 +1,3 @@
-/*
-
-        Copyright 2022 Etay Meiri
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-    Terrain Rendering - demo 3 - midpoint displacement
-*/
-
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
@@ -238,7 +218,7 @@ private:
         float MinHeight = 0.0f;
         float MaxHeight = 250.0f;
 
-        m_terrain.CreateMidpointDisplacement(Size, Roughness, MinHeight, MaxHeight);
+       
     }
 
 
@@ -263,7 +243,7 @@ private:
     GLFWwindow* window = NULL;
     BasicCamera* m_pGameCamera = NULL;
     bool m_isWireframe = false;
-    MidpointDispTerrain m_terrain;
+  
     bool m_showGui = false;
 };
 
