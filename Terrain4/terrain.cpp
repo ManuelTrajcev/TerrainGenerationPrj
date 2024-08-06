@@ -153,6 +153,12 @@ void BaseTerrain::Render(const BasicCamera& Camera)
         m_terrainTech.SetVP(VP);
     }
 
+    for (int i = 0; i < ARRAY_SIZE_IN_ELEMENTS(m_pTextures); i++) {     //Load Texture
+        if (m_pTextures[i]) {
+            m_pTextures[i]->Bind(COLOR_TEXTURE_UNIT_0 + i);
+        }
+    }
+
 
     m_triangleList.Render();
 }

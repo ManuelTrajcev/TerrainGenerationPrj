@@ -101,7 +101,8 @@ void TriangleList::Vertex::InitVertex(const BaseTerrain* pTerrain, int x, int z)
 	Pos = Vector3f(x * WorldScale, y, z * WorldScale);
 	
     float Size = (float)pTerrain->GetSize();
-    Tex = Vector2f((float)x / Size, (float)z / Size);
+    float TextureScale = pTerrain->GetTextureScale();
+    Tex = Vector2f(TextureScale * (float)x / Size, TextureScale * (float)z / Size);
 }
 
 
