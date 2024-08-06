@@ -70,7 +70,9 @@ void TriangleList::CreateGLState()
     glVertexAttribPointer(POS_LOC, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(NumFloats * sizeof(float)));
     NumFloats += 3;
 
-   
+    glEnableVertexAttribArray(TEX_LOC);     //Enable attribute pointer for Texture
+    glVertexAttribPointer(TEX_LOC, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(NumFloats * sizeof(float)));
+    NumFloats += 2;
 }
 
 
@@ -86,8 +88,7 @@ void TriangleList::PopulateBuffers(const BaseTerrain* pTerrain)
     Indices.resize(NumQuads * 6);
     InitIndices(Indices);
 
-    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices[0]) * Vertices.size(), &Vertices[0], GL_STATIC_DRAW);
-
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices[0]) * Vertices.size(), &Vertices[0], GL_STATIC_DRAW);     
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices[0]) * Indices.size(), &Indices[0], GL_STATIC_DRAW);
 }
 
@@ -100,7 +101,7 @@ void TriangleList::Vertex::InitVertex(const BaseTerrain* pTerrain, int x, int z)
 	Pos = Vector3f(x * WorldScale, y, z * WorldScale);
 	
     float Size = (float)pTerrain->GetSize();
-
+    Tex = Vector2f((float)x / Size, (float)z / Size);
 }
 
 
