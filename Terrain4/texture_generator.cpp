@@ -7,6 +7,20 @@
 
 #include "3rdparty/stb_image_write.h"
 
+TextureGenerator::TextureGenerator()
+{
+}
+
+void TextureGenerator::LoadTile(const char* pFilename)
+{
+    if (m_numTextureTiles == MAX_TEXTURE_TILES) {
+        printf("%s:%d: exceeded the maximum of texture tiles with '%s'\n", __FILE__, __LINE__, pFilename);
+        exit(0);
+    }
+
+    m_textureTiles[m_numTextureTiles].Image.Load(pFilename);
+    m_numTextureTiles++;
+}
 
 Texture* TextureGenerator::GenerateTexture(int TextureSize, BaseTerrain* pTerrain, float MinHeight, float MaxHeight) {
 	if (m_numTextureTiles == 0) {
@@ -59,4 +73,61 @@ Texture* TextureGenerator::GenerateTexture(int TextureSize, BaseTerrain* pTerrai
     pTexture->LoadRaw(TextureSize, TextureSize, BPP, pTextureData);
     free(pTextureData);
     return pTexture;
+}
+void TextureGenerator::CalculateTextureRegions(float MinHeight, float MaxHeight)
+{
+    float HeightRange = MaxHeight - MinHeight;
+
+    float RangePerTile = HeightRange / m_numTextureTiles;
+    float Remainder = HeightRange - RangePerTile * m_numTextureTiles;
+
+    if (Remainder < 0.0f) {
+        printf("%s:%d: negative remainder %f (num tiles %d range per tile %f)\n", __FILE__, __LINE__, Remainder, m_numTextureTiles, RangePerTile);
+        exit(0);
+    }
+
+    float LastHeight = -1.0f;
+
+    for (int i = 0; i < m_numTextureTiles; i++) {
+        m_textureTiles[i].HeightDesc.Low = LastHeight + 1;
+        LastHeight += RangePerTile;
+        m_textureTiles[i].HeightDesc.Optimal = LastHeight;
+        m_textureTiles[i].HeightDesc.High = m_textureTiles[i].HeightDesc.Optimal + RangePerTile;
+
+        m_textureTiles[i].HeightDesc.Print(); printf("\n");
+    }
+}
+
+
+float TextureGenerator::RegionPercent(int Tile, float Height)
+{
+    float Percent = 0.0f;
+
+    if (Height < m_textureTiles[Tile].HeightDesc.Low) {
+        Percent = 0.0f;
+    }
+    else if (Height > m_textureTiles[Tile].HeightDesc.High) {
+        Percent = 0.0f;
+    }
+    else if (Height < m_textureTiles[Tile].HeightDesc.Optimal) {
+        float Nom = (float)Height - (float)m_textureTiles[Tile].HeightDesc.Low;
+        float Denom = (float)m_textureTiles[Tile].HeightDesc.Optimal - (float)m_textureTiles[Tile].HeightDesc.Low;
+        Percent = Nom / Denom;
+    }
+    else if (Height >= m_textureTiles[Tile].HeightDesc.Optimal) {
+        float Nom = (float)m_textureTiles[Tile].HeightDesc.High - (float)Height;
+        float Denom = (float)m_textureTiles[Tile].HeightDesc.High - (float)m_textureTiles[Tile].HeightDesc.Optimal;
+        Percent = Nom / Denom;
+    }
+    else {
+        printf("%s:%d - shouldn't get here! tile %d Height %f\n", __FILE__, __LINE__, Tile, Height);
+        exit(0);
+    }
+
+    if ((Percent < 0.0f) || (Percent > 1.0f)) {
+        printf("%s:%d - Invalid percent %f\n", __FILE__, __LINE__, Percent);
+        exit(0);
+    }
+
+    return Percent;
 }

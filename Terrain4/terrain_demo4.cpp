@@ -320,7 +320,7 @@ private:
     BasicCamera* m_pGameCamera = NULL;
     bool m_isWireframe = false;
     MidpointDispTerrain m_terrain;
-    bool m_showGui = false;
+    bool m_showGui = true;
     bool m_isPaused = false;
 };
 

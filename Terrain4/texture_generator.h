@@ -26,7 +26,7 @@ struct TextureTile {		//Edna tekstura
 
 class TextureGenerator {
 public:
-	TextureGenerator() {}
+	TextureGenerator();
 
 	void LoadTile(const char* Filename);
 	Texture* GenerateTexture(int TextureSize, BaseTerrain* pTerrain, float MinHeight, float MaxHeight);
