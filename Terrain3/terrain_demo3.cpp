@@ -213,12 +213,12 @@ private:
         float WorldScale = 4.0f;
         m_terrain.InitTerrain(WorldScale);
 
-        int Size = 256;
+        int Size = 500;
         float Roughness = 1.0f;
         float MinHeight = 0.0f;
         float MaxHeight = 250.0f;
 
-       
+        m_terrain.CreateMidpointDisplacement(Size, Roughness, MinHeight, MaxHeight);
     }
 
 
@@ -243,7 +243,7 @@ private:
     GLFWwindow* window = NULL;
     BasicCamera* m_pGameCamera = NULL;
     bool m_isWireframe = false;
-  
+    MidpointDispTerrain m_terrain;
     bool m_showGui = false;
 };
 
