@@ -64,9 +64,31 @@ void FaultFormationTerrain::GetRandomTerrainPoints(TerainPoint& p1, TerainPoint&
 }
 
 void FaultFormationTerrain::ApplyFIRFilter(float Filter) {		//Iteracija niz site tocki, izmaznuvanje taka sto se zema sredna vrednost od dve sosedni tocki
+	// left to right
 	for (int z = 0; z < m_terrainSize; z++) {
 		float PrevVal = m_heightMap.Get(0, z);
 		for (int x = 1; x < m_terrainSize; x++) {
+			PrevVal = FIRFilterSinglePoint(x, z, PrevVal, Filter);
+		}
+	}
+	// right to left
+	for (int z = 0; z < m_terrainSize; z++) {
+		float PrevVal = m_heightMap.Get(m_terrainSize - 1, z);
+		for (int x = m_terrainSize - 2; x >= 0; x--) {
+			PrevVal = FIRFilterSinglePoint(x, z, PrevVal, Filter);
+		}
+	}
+	// bottom to top
+	for (int x = 0; x < m_terrainSize; x++) {
+		float PrevVal = m_heightMap.Get(x, 0);
+		for (int z = 1; z < m_terrainSize; z++) {
+			PrevVal = FIRFilterSinglePoint(x, z, PrevVal, Filter);
+		}
+	}
+	// top to bottom
+	for (int x = 0; x < m_terrainSize; x++) {
+		float PrevVal = m_heightMap.Get(x, m_terrainSize - 1);
+		for (int z = m_terrainSize - 2; z >= 0; z--) {
 			PrevVal = FIRFilterSinglePoint(x, z, PrevVal, Filter);
 		}
 	}
