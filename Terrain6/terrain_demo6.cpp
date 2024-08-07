@@ -239,7 +239,7 @@ private:
 
         m_terrain.InitTerrain(WorldScale, TextureScale, TextureFilenames);
 
-       //
+        m_terrain.CreateMidpointDisplacement(m_terrainSize, m_patchSize, m_roughness, m_minHeight, m_maxHeight);    //+ Patch size
 
         Vector3f LightDir(1.0f, -1.0f, 0.0f);
 
