@@ -357,7 +357,7 @@ void GeomipGrid::CalcNormals(std::vector<Vertex>& Vertices, std::vector<uint>& I
 
 void GeomipGrid::Render(const Vector3f& CameraPos)
 {
-    m_lodManager.Update(CameraPos);
+    m_lodManager.Update(CameraPos); //Dobivame pozicija na kamera za da znaeme od kade da presmetuvame
 
     glBindVertexArray(m_vao);
 
@@ -380,7 +380,6 @@ void GeomipGrid::Render(const Vector3f& CameraPos)
                 int z = PatchZ * (m_patchSize - 1);
                 int x = PatchX * (m_patchSize - 1);
                 int BaseVertex = z * m_width + x;
-                //            printf("%d\n", BaseVertex);
 
                 glDrawElementsBaseVertex(GL_TRIANGLES, m_lodInfo[C].info[L][R][T][B].Count, 
                                          GL_UNSIGNED_INT, (void*)BaseIndex, BaseVertex);
