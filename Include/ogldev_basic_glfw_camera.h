@@ -79,6 +79,8 @@ public:
 
     void SetSpeed(float Speed);
 
+    float GetSpeed();
+
     void SetName(const std::string& Name) { m_name = Name; }
 
     const std::string& GetName() const { return m_name; }
