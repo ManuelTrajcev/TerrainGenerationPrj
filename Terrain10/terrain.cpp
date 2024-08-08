@@ -1,20 +1,3 @@
-/*
-    Copyright 2022 Etay Meiri
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -73,29 +56,7 @@ void BaseTerrain::Finalize()
 }
 
 
-float BaseTerrain::GetHeightInterpolated(float x, float z) const
-{
-    float X0Z0Height = GetHeight((int)x, (int)z);
 
-    if (((int)x + 1 >= m_terrainSize) ||  ((int)z + 1 >= m_terrainSize)) {
-        return X0Z0Height;
-    }
-
-    float X1Z0Height = GetHeight((int)x + 1, (int)z);
-    float X0Z1Height = GetHeight((int)x, (int)z + 1);
-    float X1Z1Height = GetHeight((int)x + 1, (int)z + 1);
-
-    float FactorX = x - floorf(x);
-
-    float InterpolatedBottom = (X1Z0Height - X0Z0Height) * FactorX + X0Z0Height;
-    float InterpolatedTop    = (X1Z1Height - X0Z1Height) * FactorX + X0Z1Height;
-
-    float FactorZ = z - floorf(z);
-
-    float FinalHeight = (InterpolatedTop - InterpolatedBottom) * FactorZ + InterpolatedBottom;
-
-    return FinalHeight;
-}
 
 
 void BaseTerrain::LoadFromFile(const char* pFilename)
@@ -187,42 +148,7 @@ void BaseTerrain::SetTextureHeights(float Tex0Height, float Tex1Height, float Te
 }
 
 
-float BaseTerrain::GetWorldHeight(float x, float z) const
-{
-    float HeightMapX = x / m_worldScale;
-    float HeightMapZ = z / m_worldScale;
-
-    return GetHeightInterpolated(HeightMapX, HeightMapZ);
-}
 
 
-Vector3f BaseTerrain::ConstrainCameraPosToTerrain(const Vector3f& CameraPos)
-{
-    Vector3f NewCameraPos = CameraPos;
 
-    // Make sure camera doesn't go outside of the terrain bounds
-    if (CameraPos.x < 0.0f) {
-        NewCameraPos.x = 0.0f;
-    }
 
-    if (CameraPos.z < 0.0f) {
-        NewCameraPos.z = 0.0f;
-    }
-
-    if (CameraPos.x >= GetWorldSize()) {
-        NewCameraPos.x = GetWorldSize() - 0.5f;
-    }
-
-    if (CameraPos.z >= GetWorldSize()) {
-        NewCameraPos.z = GetWorldSize() - 0.5f;
-    }
-
-    NewCameraPos.y = GetWorldHeight(CameraPos.x, CameraPos.z) + m_cameraHeight;
-
-    float f = sinf(CameraPos.x * 4.0f) + cosf(CameraPos.z * 4.0f);    
-    f /= 35.0f; 
-
-    NewCameraPos.y += f;
-
-    return NewCameraPos;
-}
