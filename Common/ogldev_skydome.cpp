@@ -58,9 +58,9 @@ void Skydome::CreateGLState()
     glVertexAttribPointer(pos_loc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)Offset);
     Offset += 3;
 
-  //  glEnableVertexAttribArray(tex_loc);
-   // glVertexAttribPointer(tex_loc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(Offset * sizeof(float)));
-   // Offset += 2;
+    glEnableVertexAttribArray(tex_loc);
+    glVertexAttribPointer(tex_loc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const void*)(Offset * sizeof(float)));
+    Offset += 2;
 }
 
 
