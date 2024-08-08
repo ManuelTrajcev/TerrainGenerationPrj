@@ -39,8 +39,7 @@
               "RelativeToolTip": "..\\..\\Terrain7\\geomip_grid.cpp",
               "ViewState": "AQIAAGsBAAAAAAAAAAAAAHMBAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-07T19:37:55.428Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-07T19:37:55.428Z"
             },
             {
               "$type": "Document",
@@ -52,8 +51,7 @@
               "RelativeToolTip": "..\\..\\Terrain7\\lod_manager.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-07T16:01:11.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-07T16:01:11.806Z"
             },
             {
               "$type": "Document",
@@ -63,7 +61,7 @@
               "RelativeDocumentMoniker": "..\\..\\Terrain7\\lod_manager.cpp",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain7\\lod_manager.cpp",
               "RelativeToolTip": "..\\..\\Terrain7\\lod_manager.cpp",
-              "ViewState": "AQIAAEMAAAAAAAAAAAAkwFYAAABDAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAkwA4AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-07T16:01:11.273Z",
               "EditorCaption": ""
