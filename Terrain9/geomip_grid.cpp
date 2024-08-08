@@ -359,7 +359,7 @@ void GeomipGrid::CalcNormals(std::vector<Vertex>& Vertices, std::vector<uint>& I
 void GeomipGrid::Render(const Vector3f& CameraPos, const Matrix4f& ViewProj) {      //VieProj added
     m_lodManager.Update(CameraPos);
 
-    FrustumCulling fc(ViewProj);    //Klasa koja 
+    FrustumCulling fc(ViewProj);    //Klasa koja 4 vektroi za sekoj clip (levo,denso,gore,dole), presmetuva za sekoja strana dali ima presek so vertex
     glBindVertexArray(m_vao);
 
     if (gShowPoints > 0) {
@@ -437,12 +437,12 @@ bool GeomipGrid::IsPatchInsideViewFrustum_WorldSpace(int X, int Z, const Frustum
     float MinHeight = std::min(h00, std::min(h01, std::min(h10, h11)));
     float MaxHeight = std::max(h00, std::max(h01, std::max(h10, h11)));
 
-    Vector3f p00_low((float)x0 * m_worldScale, MinHeight, (float)z0 * m_worldScale);
+    Vector3f p00_low((float)x0 * m_worldScale, MinHeight, (float)z0 * m_worldScale);        //Bottom corners of bounding box
     Vector3f p01_low((float)x0 * m_worldScale, MinHeight, (float)z1 * m_worldScale);
     Vector3f p10_low((float)x1 * m_worldScale, MinHeight, (float)z0 * m_worldScale);
     Vector3f p11_low((float)x1 * m_worldScale, MinHeight, (float)z1 * m_worldScale);
 
-    Vector3f p00_high((float)x0 * m_worldScale, MaxHeight, (float)z0 * m_worldScale);
+    Vector3f p00_high((float)x0 * m_worldScale, MaxHeight, (float)z0 * m_worldScale);       //Top corners of bounding box
     Vector3f p01_high((float)x0 * m_worldScale, MaxHeight, (float)z1 * m_worldScale);
     Vector3f p10_high((float)x1 * m_worldScale, MaxHeight, (float)z0 * m_worldScale);
     Vector3f p11_high((float)x1 * m_worldScale, MaxHeight, (float)z1 * m_worldScale);
@@ -459,13 +459,18 @@ bool GeomipGrid::IsPatchInsideViewFrustum_WorldSpace(int X, int Z, const Frustum
 
     return InsideViewFrustm;
 }
+bool GeomipGrid::IsCameraInPatch(const Vector3f& CameraPos, int X, int Z)
+{
+    float x0 = (float)(X - 2 * m_patchSize) * m_worldScale;
+    float x1 = (float)(X + 2 * m_patchSize) * m_worldScale;
+    float z0 = (float)(Z - 2 * m_patchSize) * m_worldScale;
+    float z1 = (float)(Z + 2 * m_patchSize) * m_worldScale;
 
 
+    bool CameraInPatch = (CameraPos.x >= x0) &&
+        (CameraPos.x <= x1) &&
+        (CameraPos.z >= z0) &&
+        (CameraPos.z <= z1);
 
-
-
-
-
-
-
-
+    return CameraInPatch;
+}
