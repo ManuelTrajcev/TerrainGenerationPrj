@@ -376,11 +376,11 @@ void GeomipGrid::Render(const Vector3f& CameraPos, const Matrix4f& ViewProj) {  
                 int z = PatchZ * (m_patchSize - 1);
 
                 if (!IsPatchInsideViewFrustum_WorldSpace(x, z, fc)) {       //Debbuging
-                    printf("0 ");       //out of
+                  //  printf("0 ");       //out of
                     continue;
                 }
                 else {
-                    printf("1 ");       //inside of
+                   // printf("1 ");       //inside of
                 }
 
                 const LodManager::PatchLod& plod = m_lodManager.GetPatchLod(PatchX, PatchZ);
@@ -398,7 +398,7 @@ void GeomipGrid::Render(const Vector3f& CameraPos, const Matrix4f& ViewProj) {  
                     GL_UNSIGNED_INT, (void*)BaseIndex, BaseVertex);
             }
 
-            printf("\n");
+           // printf("\n");
         }
     }
 
