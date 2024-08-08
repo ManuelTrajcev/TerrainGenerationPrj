@@ -3,10 +3,7 @@
   "WorkspaceRootPath": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Windows\\ogldev_vs_2022\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{494730C7-08C3-4D83-8853-245A346B1739}|Terrain10\\Terrain10.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain10\\terrain_demo10.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{494730C7-08C3-4D83-8853-245A346B1739}|Terrain10\\Terrain10.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain10\\terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}|Terrain11\\Terrain11.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain_demo11.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -16,7 +13,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1156,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -32,28 +29,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "terrain.cpp",
-              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain10\\terrain.cpp",
-              "RelativeDocumentMoniker": "..\\..\\Terrain10\\terrain.cpp",
-              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain10\\terrain.cpp",
-              "RelativeToolTip": "..\\..\\Terrain10\\terrain.cpp",
-              "ViewState": "AQIAAEIAAAAAAAAAAAAkwFAAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-08T09:03:54.703Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "terrain_demo10.cpp",
-              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain10\\terrain_demo10.cpp",
-              "RelativeDocumentMoniker": "..\\..\\Terrain10\\terrain_demo10.cpp",
-              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain10\\terrain_demo10.cpp",
-              "RelativeToolTip": "..\\..\\Terrain10\\terrain_demo10.cpp",
-              "ViewState": "AQIAAKQAAAAAAAAAAAD4v68AAAAAAAAA",
+              "Title": "terrain_demo11.cpp",
+              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain_demo11.cpp",
+              "RelativeDocumentMoniker": "..\\..\\Terrain11\\terrain_demo11.cpp",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain_demo11.cpp",
+              "RelativeToolTip": "..\\..\\Terrain11\\terrain_demo11.cpp",
+              "ViewState": "AQIAAM4AAAAAAAAAAAAAwN0AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-08T09:03:25.129Z",
+              "WhenOpened": "2024-08-08T12:06:06.609Z",
               "EditorCaption": ""
             }
           ]
