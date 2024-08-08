@@ -356,7 +356,109 @@ void GeomipGrid::CalcNormals(std::vector<Vertex>& Vertices, std::vector<uint>& I
     }
 }
 
+void GeomipGrid::Render(const Vector3f& CameraPos, const Matrix4f& ViewProj) {      //VieProj added
+    m_lodManager.Update(CameraPos);
 
+    FrustumCulling fc(ViewProj);    //Klasa koja 
+    glBindVertexArray(m_vao);
+
+    if (gShowPoints > 0) {
+        glDrawElementsBaseVertex(GL_POINTS, m_lodInfo[0].info[0][0][0][0].Count, GL_UNSIGNED_INT, (void*)0, 0);
+    }
+    if (gShowPoints != 2) {
+        float PatchSize = ((float)m_patchSize - 1.0f) * m_worldScale;  // m_patchSize is in vertices and PatchSize is the actual size (2 vertices --> size 1)
+        float HalfPatchSize = PatchSize / 2.0f;
+
+        for (int PatchZ = 0; PatchZ < m_numPatchesZ; PatchZ++) {
+            for (int PatchX = 0; PatchX < m_numPatchesX; PatchX++) {
+
+                int x = PatchX * (m_patchSize - 1);
+                int z = PatchZ * (m_patchSize - 1);
+
+                if (!IsPatchInsideViewFrustum_WorldSpace(x, z, fc)) {       //Debbuging
+                    printf("0 ");       //out of
+                    continue;
+                }
+                else {
+                    printf("1 ");       //inside of
+                }
+
+                const LodManager::PatchLod& plod = m_lodManager.GetPatchLod(PatchX, PatchZ);
+                int C = plod.Core;
+                int L = plod.Left;
+                int R = plod.Right;
+                int T = plod.Top;
+                int B = plod.Bottom;
+
+                size_t BaseIndex = sizeof(unsigned int) * m_lodInfo[C].info[L][R][T][B].Start;
+
+                int BaseVertex = z * m_width + x;
+
+                glDrawElementsBaseVertex(GL_TRIANGLES, m_lodInfo[C].info[L][R][T][B].Count,
+                    GL_UNSIGNED_INT, (void*)BaseIndex, BaseVertex);
+            }
+
+            printf("\n");
+        }
+    }
+
+    glBindVertexArray(0);
+}
+
+bool GeomipGrid::IsPatchInsideViewFrustum_ViewSpace(int X, int Z, const Matrix4f& ViewProj)
+{
+    int x0 = X;
+    int x1 = X + m_patchSize - 1;
+    int z0 = Z;
+    int z1 = Z + m_patchSize - 1;
+
+    Vector3f p00((float)x0 * m_worldScale, m_pTerrain->GetHeight(x0, z0), (float)z0 * m_worldScale);
+    Vector3f p01((float)x0 * m_worldScale, m_pTerrain->GetHeight(x0, z1), (float)z1 * m_worldScale);
+    Vector3f p10((float)x1 * m_worldScale, m_pTerrain->GetHeight(x1, z0), (float)z0 * m_worldScale);
+    Vector3f p11((float)x1 * m_worldScale, m_pTerrain->GetHeight(x1, z1), (float)z1 * m_worldScale);
+
+    bool InsideViewFrustum =        //ako barem edno e true, znaci e vnatre vo ViewFrustum
+        IsPointInsideViewFrustum(p00, ViewProj) ||
+        IsPointInsideViewFrustum(p01, ViewProj) ||
+        IsPointInsideViewFrustum(p10, ViewProj) ||
+        IsPointInsideViewFrustum(p11, ViewProj);
+    return InsideViewFrustum;
+}
+bool GeomipGrid::IsPatchInsideViewFrustum_WorldSpace(int X, int Z, const FrustumCulling& fc)
+{
+    int x0 = X;
+    int x1 = X + m_patchSize - 1;
+    int z0 = Z;
+    int z1 = Z + m_patchSize - 1;
+    float h00 = m_pTerrain->GetHeight(x0, z0);
+    float h01 = m_pTerrain->GetHeight(x0, z1);
+    float h10 = m_pTerrain->GetHeight(x1, z0);
+    float h11 = m_pTerrain->GetHeight(x1, z1);
+    float MinHeight = std::min(h00, std::min(h01, std::min(h10, h11)));
+    float MaxHeight = std::max(h00, std::max(h01, std::max(h10, h11)));
+
+    Vector3f p00_low((float)x0 * m_worldScale, MinHeight, (float)z0 * m_worldScale);
+    Vector3f p01_low((float)x0 * m_worldScale, MinHeight, (float)z1 * m_worldScale);
+    Vector3f p10_low((float)x1 * m_worldScale, MinHeight, (float)z0 * m_worldScale);
+    Vector3f p11_low((float)x1 * m_worldScale, MinHeight, (float)z1 * m_worldScale);
+
+    Vector3f p00_high((float)x0 * m_worldScale, MaxHeight, (float)z0 * m_worldScale);
+    Vector3f p01_high((float)x0 * m_worldScale, MaxHeight, (float)z1 * m_worldScale);
+    Vector3f p10_high((float)x1 * m_worldScale, MaxHeight, (float)z0 * m_worldScale);
+    Vector3f p11_high((float)x1 * m_worldScale, MaxHeight, (float)z1 * m_worldScale);
+
+    bool InsideViewFrustm =
+        fc.IsPointInsideViewFrustum(p00_low) ||
+        fc.IsPointInsideViewFrustum(p01_low) ||
+        fc.IsPointInsideViewFrustum(p10_low) ||
+        fc.IsPointInsideViewFrustum(p11_low) ||
+        fc.IsPointInsideViewFrustum(p00_high) ||
+        fc.IsPointInsideViewFrustum(p01_high) ||
+        fc.IsPointInsideViewFrustum(p10_high) ||
+        fc.IsPointInsideViewFrustum(p11_high);
+
+    return InsideViewFrustm;
+}
 
 
 
