@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -10,8 +9,6 @@
 #include "terrain.h"
 #include "texture_config.h"
 #include "3rdparty/stb_image_write.h"
-
-//#define DEBUG_PRINT
 
 BaseTerrain::~BaseTerrain()
 {
