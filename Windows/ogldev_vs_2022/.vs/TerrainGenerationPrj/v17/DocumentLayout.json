@@ -3,7 +3,16 @@
   "WorkspaceRootPath": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Windows\\ogldev_vs_2022\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}|Terrain11\\Terrain11.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}|Terrain11\\Terrain11.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Common\\ogldev_skybox.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}|Terrain11\\Terrain11.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain_demo11.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD46AD16-DAB0-4EDC-9576-0E5658E9A0BC}|Terrain11\\Terrain11.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Common\\cubemap_texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -13,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1156,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -24,20 +33,55 @@
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ogldev_skybox.cpp",
+              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Common\\ogldev_skybox.cpp",
+              "RelativeDocumentMoniker": "..\\..\\Common\\ogldev_skybox.cpp",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Common\\ogldev_skybox.cpp",
+              "RelativeToolTip": "..\\..\\Common\\ogldev_skybox.cpp",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAC0AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-08T13:04:02.023Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "cubemap_texture.cpp",
+              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Common\\cubemap_texture.cpp",
+              "RelativeDocumentMoniker": "..\\..\\Common\\cubemap_texture.cpp",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Common\\cubemap_texture.cpp",
+              "RelativeToolTip": "..\\..\\Common\\cubemap_texture.cpp",
+              "ViewState": "AQIAACYAAAAAAAAAAAAIwDgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-08T12:57:07.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "terrain_demo11.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain_demo11.cpp",
               "RelativeDocumentMoniker": "..\\..\\Terrain11\\terrain_demo11.cpp",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain_demo11.cpp",
               "RelativeToolTip": "..\\..\\Terrain11\\terrain_demo11.cpp",
-              "ViewState": "AQIAAM4AAAAAAAAAAAAAwN0AAAARAAAA",
+              "ViewState": "AQIAAC8BAAAAAAAAAAAqwDoBAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-08T12:06:06.609Z",
+              "WhenOpened": "2024-08-08T12:55:07.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "terrain.cpp",
+              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain.cpp",
+              "RelativeDocumentMoniker": "..\\..\\Terrain11\\terrain.cpp",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Terrain11\\terrain.cpp*",
+              "RelativeToolTip": "..\\..\\Terrain11\\terrain.cpp*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-08T12:54:49.484Z",
               "EditorCaption": ""
             }
           ]
