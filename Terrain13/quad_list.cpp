@@ -33,7 +33,7 @@ void QuadList::CreateQuadList(int Width, int Depth, const BaseTerrain* pTerrain)
     m_width = Width;
     m_depth = Depth;
     CreateGLState();
-    PopulateBuffers();
+    PopulateBuffers(pTerrain);
     glBindVertexArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
