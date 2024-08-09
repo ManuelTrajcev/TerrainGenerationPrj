@@ -198,7 +198,6 @@ public:
         }
     }
 
-
     void MouseCB(int button, int action, int x, int y)
     {
     }
@@ -230,13 +229,8 @@ private:
         float CameraX = m_terrain.GetWorldSize() / 2.0f;
         float CameraZ = CameraX;
         Vector3f Pos(CameraX, 600.0f, CameraZ);
-    //    Vector3f Pos(0.0f, 0.0f, 0.0f);
-       // Pos = m_terrain.ConstrainCameraPosToTerrain(Pos);
         Vector3f Target(0.0f, 0.0f, 1.0f);
         Vector3f Up(0.0, 1.0f, 0.0f);
-
-     //   Pos = Vector3f(3840.0f, 151.946808f, 3840.0f);
-      //  Target = Vector3f(-0.896419f, -0.443071f, 0.010951f);
 
         float FOV = 45.0f;
         float zNear = 0.1f;

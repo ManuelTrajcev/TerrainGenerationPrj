@@ -120,7 +120,6 @@ void QuadList::InitIndices(std::vector<unsigned int>& Indices)
             Indices[Index++] = IndexTopRight;
         }
     }
-
     assert(Index == Indices.size());
 }
 void QuadList::Render()
