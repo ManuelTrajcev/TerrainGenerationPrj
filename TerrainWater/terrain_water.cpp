@@ -356,6 +356,8 @@ int main(int argc, char** argv)
     glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CLIP_DISTANCE0);
+    glDisable(GL_SCISSOR_TEST);
+
 
     app->Run();
 

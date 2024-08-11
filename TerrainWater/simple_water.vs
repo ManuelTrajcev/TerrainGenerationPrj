@@ -11,16 +11,14 @@ uniform vec3 lightPosition;
 out vec2 oTex;
 out vec4 ClipSpaceCoords;
 out vec3 oVertexToCamera;
-out vec3 fromLightVector;
 
-const float tiling = 6.0;
+const float Tiling  = 6.0;
 
 void main()
 {
-    vec3 NewPosition = (Position + vec3(0.0, gHeight, 0.0));
-
+   vec3 NewPosition = (Position + vec3(0.0, gHeight, 0.0));
     ClipSpaceCoords = gVP * vec4(NewPosition, 1.0);
     gl_Position = ClipSpaceCoords;
-    oTex = vec2(Position.x/2.0 + 0.5, position.y/2.0 + 0.5) * tiling;
+    oTex = TexCoord * Tiling;
     oVertexToCamera = gCameraPos - NewPosition;      //for calcualting frnsel effect
 }
