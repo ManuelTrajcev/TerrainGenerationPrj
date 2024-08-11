@@ -12,12 +12,10 @@ out vec4 ClipSpaceCoords;
 out vec3 oVertexToCamera;
 
 const float Tiling = 6.0;
-const vec4 plane = vec4(0, -1, 0, 15);
 
 void main()
 {
     vec3 NewPosition = (Position + vec3(0.0, gHeight, 0.0));
-    gl_ClipDistance[0] = dot(NewPosition, plane);
 
     ClipSpaceCoords = gVP * vec4(NewPosition, 1.0);
     gl_Position = ClipSpaceCoords;

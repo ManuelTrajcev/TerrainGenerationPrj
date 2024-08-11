@@ -61,3 +61,26 @@ void SimpleWater::Render(const Vector3f& CameraPos, const Matrix4f& VP, const Ve
     m_water.Render();
     glDisable(GL_BLEND);
 }
+
+void SimpleWater::StartReflectionPass()
+{
+    m_reflectionFBO.BindForWriting();
+}
+
+
+void SimpleWater::EndReflectionPass()
+{
+    m_reflectionFBO.UnbindWriting();
+}
+
+
+void SimpleWater::StartRefractionPass()
+{
+    m_refractionFBO.BindForWriting();
+}
+
+
+void SimpleWater::EndRefractionPass()
+{
+    m_refractionFBO.UnbindWriting();
+}

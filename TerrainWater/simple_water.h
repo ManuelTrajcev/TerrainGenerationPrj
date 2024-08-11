@@ -24,7 +24,14 @@ public:
     void SetWaterHeight(float Height) { m_waterHeight = Height; }
     float GetWaterHeight() const { return m_waterHeight; }
     void Render(const Vector3f& CameraPos, const Matrix4f& VP, const Vector3f& LightDir);
-   
+
+    void StartReflectionPass();
+    void EndReflectionPass();
+    void StartRefractionPass();
+    void EndRefractionPass();
+
+    GLuint GetReflectionTexture() const { return m_reflectionFBO.GetTexture(); }
+    GLuint GetRefractionTexture() const { return m_refractionFBO.GetTexture(); }
 };
 
 
