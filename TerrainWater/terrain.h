@@ -69,7 +69,7 @@ class BaseTerrain
 
     Vector3f ConstrainCameraPosToTerrain(const Vector3f& CameraPos);
 	
-    void SetWaterHeight(float Height) { m_water.SetWaterHeight(Height); }
+    void SetWaterHeight(float Height) { m_water.SetWaterHeight(Height); }   //TODO
 
     void ControlGUI(bool Enable) { m_guiEnabled = Enable; }
 
@@ -104,7 +104,7 @@ private:
     Vector3f m_lightDir;
     float m_cameraHeight = 2.0f;
     Skydome* m_pSkydome = NULL;		
-    SimpleWater m_water;
+    SimpleWater m_water;    //TODO
     GUITexture m_guiTexture1;
     GUITexture m_guiTexture2;
     bool m_guiEnabled = true;

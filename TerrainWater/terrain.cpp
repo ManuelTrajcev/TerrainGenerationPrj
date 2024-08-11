@@ -1,21 +1,3 @@
-/*
-    Copyright 2022 Etay Meiri
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -81,7 +63,7 @@ void BaseTerrain::Finalize()
 {
     m_geomipGrid.CreateGeomipGrid(m_terrainSize, m_terrainSize, m_patchSize, this);
 
-    m_water.Init(m_terrainSize, m_worldScale);
+    m_water.Init(m_terrainSize, m_worldScale);      //TODO
 }
 
 
@@ -119,7 +101,7 @@ void BaseTerrain::LoadFromFile(const char* pFilename)
 
     m_geomipGrid.CreateGeomipGrid(m_terrainSize, m_terrainSize, m_patchSize, this);
 	
-	m_water.Init(m_terrainSize, m_worldScale);
+	m_water.Init(m_terrainSize, m_worldScale);  //TODO
 }
 
 
@@ -197,21 +179,21 @@ void BaseTerrain::RenderTerrain(const BasicCamera& Camera)
     RenderTerrainDefaultPass(Camera);
 
     if (m_guiEnabled) {
-        m_guiTexture1.Render(m_water.GetReflectionTexture());
-        m_guiTexture2.Render(m_water.GetRefractionTexture());
+     //   m_guiTexture1.Render(m_water.GetReflectionTexture());       //TODO
+     //   m_guiTexture2.Render(m_water.GetRefractionTexture());       
     }
 }
 
 
 void BaseTerrain::RenderTerrainReflectionPass(const BasicCamera& Camera)
 {
-    m_water.StartReflectionPass();
+   // m_water.StartReflectionPass();      //TODO
 
     BasicCamera CameraUnderWater = Camera;
 
     // Set the position of the camera to be under the water
     const Vector3f& CameraPos = Camera.GetPos();    
-    float CameraHeightAboveWater = CameraPos.y - m_water.GetWaterHeight();
+    float CameraHeightAboveWater = CameraPos.y - m_water.GetWaterHeight();      //TODO
     Vector3f CameraPosUnderWater = CameraPos;
     CameraPosUnderWater.y = m_water.GetWaterHeight() - CameraHeightAboveWater;
     CameraUnderWater.SetPosition(CameraPosUnderWater);
@@ -229,19 +211,19 @@ void BaseTerrain::RenderTerrainReflectionPass(const BasicCamera& Camera)
     m_geomipGrid.Render(CameraUnderWater.GetPos(), CameraUnderWater.GetViewProjMatrix());
     m_pSkydome->Render(CameraUnderWater);
     m_terrainTech.Enable();
-    m_water.EndReflectionPass();
+   // m_water.EndReflectionPass();            //TODO
 }
 
 void BaseTerrain::RenderTerrainRefractionPass(const BasicCamera& Camera)
 {
-    m_water.StartRefractionPass();
+    //m_water.StartRefractionPass();              //TODO
 
     Vector3f PlaneNormal(0, -1.0f, 0.0f);
     Vector3f PointOnPlane(0.0f, m_water.GetWaterHeight() + 0.5f, 0.0f);
     m_terrainTech.SetClipPlane(PlaneNormal, PointOnPlane);
     m_terrainTech.SetVP(Camera.GetViewProjMatrix());
     m_geomipGrid.Render(Camera.GetPos(), Camera.GetViewProjMatrix());
-    m_water.EndRefractionPass();
+   // m_water.EndRefractionPass();
 }
 
 
