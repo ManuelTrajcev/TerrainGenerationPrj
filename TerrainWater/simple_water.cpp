@@ -48,9 +48,7 @@ void SimpleWater::Render(const Vector3f& CameraPos, const Matrix4f& VP, const Ve
     m_waterTech.SetDUDVOffset(sinf(sTime));
 
     m_reflectionFBO.BindForReading(REFLECTION_TEXTURE_UNIT);
-
     m_refractionFBO.BindForReading(REFRACTION_TEXTURE_UNIT);
-
     m_refractionFBO.BindDepthForReading(DEPTH_MAP_TEXTURE_UNIT);
 
     m_dudvMap.Bind(DUDV_TEXTURE_UNIT);
