@@ -9,6 +9,7 @@ in vec3 oVertexToCamera;
 uniform sampler2D gReflectionTexture;
 uniform sampler2D gRefractionTexture;
 uniform sampler2D gDUDVMapTexture;
+uniform float gDUDVOffset = 0.0;        //Move Factor
 
 const float waveStrength = 0.02;
 
@@ -20,7 +21,7 @@ void main()
     vec2 ReflectionTexCoords = RefractionTexCoords;
     ReflectionTexCoords.y = 1.0 - ReflectionTexCoords.y;
 
-    vec2 distortion1 = (texture(gDUDVMapTexture, vec2(oTex.x, oTex.y)).rg * 2.0 + 1.0) * waveStrength;
+    vec2 dudv1 = (texture(gDUDVMapTexture, vec2(oTex.x + gDUDVOffset, oTex.y)).rg * 0.1) * waveStrength;
 
     RefractionTexCoords += distortion1;
 
