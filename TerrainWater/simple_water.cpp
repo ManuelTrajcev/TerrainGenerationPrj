@@ -10,6 +10,31 @@ SimpleWater::~SimpleWater()
 {
 }
 
+void SimpleWater::Init(int Size, float WorldScale)
+{
+    if (!m_waterTech.Init()) {
+        printf("Error initializing water tech\n");
+        exit(0);
+    }
+
+    m_waterTech.Enable();
+    m_waterTech.SetReflectionTextureUnit(REFLECTION_TEXTURE_UNIT_INDEX);
+    m_waterTech.SetRefractionTextureUnit(REFRACTION_TEXTURE_UNIT_INDEX);
+    m_waterTech.SetDUDVMapTextureUnit(DUDV_TEXTURE_UNIT_INDEX);
+    m_waterTech.SetNormalMapTextureUnit(NORMAL_MAP_TEXTURE_UNIT_INDEX);
+    m_waterTech.SetDepthMapTextureUnit(DEPTH_MAP_TEXTURE_UNIT_INDEX);
+    m_waterTech.SetWaterHeight(m_waterHeight);
+    m_waterTech.SetLightColor(Vector3f(1.0f, 1.0f, 1.0f));
+
+    m_dudvMap.Load("../Content/waterDUDV.png");
+    m_normalMap.Load("../Content/WaterNormalMap.png");
+
+    m_water.CreateTriangleList(2, 2, Size * WorldScale);
+
+    m_reflectionFBO.Init(1000, 1000);
+    m_refractionFBO.Init(1000, 1000);
+}
+
 void SimpleWater::Render(const Vector3f& CameraPos, const Matrix4f& VP, const Vector3f& LightDir)
 {
     m_waterTech.Enable();

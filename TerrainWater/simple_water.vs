@@ -1,6 +1,7 @@
 #version 330
 
 layout (location = 0) in vec3 Position;
+layout (location = 1) in vec2 TexCoord;
 
 uniform mat4 gVP;
 uniform float gHeight = 0.0f;
@@ -15,7 +16,10 @@ const float Tiling = 6.0;
 void main()
 {
     vec3 NewPosition = (Position + vec3(0.0, gHeight, 0.0));
+    gl_ClipDistance[0] = 12;
+
     ClipSpaceCoords = gVP * vec4(NewPosition, 1.0);
     gl_Position = ClipSpaceCoords;
     oTex = TexCoord * Tiling;
+    oVertexToCamera = gCameraPos - NewPosition;
 }
