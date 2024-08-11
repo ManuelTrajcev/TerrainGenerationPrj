@@ -6,10 +6,12 @@ layout (location = 1) in vec2 TexCoord;
 uniform mat4 gVP;
 uniform float gHeight = 0.0f;
 uniform vec3 gCameraPos;       
+uniform vec3 lightPosition;       
 
 out vec2 oTex;
 out vec4 ClipSpaceCoords;
 out vec3 oVertexToCamera;
+out vec3 fromLightVector;
 
 const float tiling = 6.0;
 
