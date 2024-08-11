@@ -11,7 +11,7 @@ out vec2 oTex;
 out vec4 ClipSpaceCoords;
 out vec3 oVertexToCamera;
 
-const float Tiling = 6.0;
+const float tiling = 6.0;
 
 void main()
 {
@@ -19,6 +19,6 @@ void main()
 
     ClipSpaceCoords = gVP * vec4(NewPosition, 1.0);
     gl_Position = ClipSpaceCoords;
-    oTex = TexCoord * Tiling;
+    oTex = vec2(Position.x/2.0 + 0.5, position.y/2.0 + 0.5) * tiling;
     oVertexToCamera = gCameraPos - NewPosition;
 }

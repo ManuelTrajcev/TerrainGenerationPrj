@@ -26,7 +26,7 @@ void SimpleWater::Init(int Size, float WorldScale)
     m_waterTech.SetWaterHeight(m_waterHeight);
     m_waterTech.SetLightColor(Vector3f(1.0f, 1.0f, 1.0f));
 
-    m_dudvMap.Load("../Content/waterDUDV.png");
+    m_dudvMap.Load("../Content/waterDUDV.png");     //Load DuDv map
     m_normalMap.Load("../Content/WaterNormalMap.png");
 
     m_water.CreateTriangleList(2, 2, Size * WorldScale);
@@ -51,7 +51,7 @@ void SimpleWater::Render(const Vector3f& CameraPos, const Matrix4f& VP, const Ve
     m_refractionFBO.BindForReading(REFRACTION_TEXTURE_UNIT);
     m_refractionFBO.BindDepthForReading(DEPTH_MAP_TEXTURE_UNIT);
 
-    m_dudvMap.Bind(DUDV_TEXTURE_UNIT);
+    m_dudvMap.Bind(DUDV_TEXTURE_UNIT);      //Bind dudv map
     m_normalMap.Bind(NORMAL_MAP_TEXTURE_UNIT);
 
     glEnable(GL_BLEND);
