@@ -13,7 +13,7 @@ uniform sampler2D gRefractionTexture;
 
 void main()
 {
-    vec4 reflectionColor = texture(gReflectionTexture, ReflectionTexCoords);
+    vec4 reflectionColor = texture(gReflectionTexture, ReflectionTexCoords + vec2(-0.1, 0.0);
     vec4 reflectionColor = texture(gRefractionTexture, RefractionTexCoords);
 
     vec4 NDCCoords = (ClipSpaceCoords / ClipSpaceCoords.w) / 2.0f + vec4(0.5);      //Normalized device coordinates (screen cords
