@@ -4,7 +4,7 @@ layout(location = 0) out vec4 FragColor;
 
 in vec2 oTex;
 in vec4 ClipSpaceCoords;
-in vec3 oVertexToCamera;
+in vec3 oVertexToCamera;     //for calcualting frensel effect
 
 uniform sampler2D gReflectionTexture;
 uniform sampler2D gRefractionTexture;
@@ -34,7 +34,10 @@ void main()
     vec4 reflectionColor = texture(gReflectionTexture, ReflectionTexCoords);
     vec4 refractionColor = texture(gRefractionTexture, RefractionTexCoords);
     
+    vec3 ViewVector = normalize(oVertexToCamera);
+    float refractiveFactor = dot(ViewVector, Normal);
+    refractiveFactor = pow(refractiveFactor, 0.5);     //higher number - more reflection
 
-    FragColor = mix(reflectionColor, reflectionColor, 0.5);
+    FragColor = mix(reflectionColor, reflectionColor, refractiveFactor);
     FragColor = mix(FragColor, vec4(0.0, 0.3, 0.5, 1.0), 0.2);      //Mix with blue-green color
 }
