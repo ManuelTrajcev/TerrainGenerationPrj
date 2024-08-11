@@ -21,18 +21,20 @@ void main()
     vec2 ReflectionTexCoords = RefractionTexCoords;
     ReflectionTexCoords.y = 1.0 - ReflectionTexCoords.y;
 
-    vec2 dudv1 = (texture(gDUDVMapTexture, vec2(oTex.x + gDUDVOffset, oTex.y)).rg * 0.1) * waveStrength;
-
+    vec2 dudv1 = texture(gDUDVMapTexture, vec2(oTex.x + gDUDVOffset, oTex.y)).rg * 0.1;
+    dudv1 = oTex + vec2(dudv1.x, dudv1.y + gDUDVOffset);
+    vec2 dudv = (texture(gDUDVMapTexture, dudv1).rg * 2.0 - 1) * WaveLength * clamp(FloorToWaterSurface / 20.0, 0.0, 1.0);
     RefractionTexCoords += distortion1;
 
-    vec4 reflectionColor = texture(gReflectionTexture, ReflectionTexCoords + vec2(-0.1, 0.0);
-    vec4 reflectionColor = texture(gRefractionTexture, RefractionTexCoords);
-
-    RefractionTexCoords = clamp(RefractionTexCoords, 0.001, 0.999);
-
-    ReflectionTexCoords = clamp(ReflectionTexCoords.x, 0.001, 0.999);
-    ReflectionTexCoords = clamp(ReflectionTexCoords.y, -0.99, -0.001);
+    vec2 dudv1 = texture(gDUDVMapTexture, vec2(oTex.x + gDUDVOffset, oTex.y)).rg * 0.1;     //Distortion
+    dudv1 = oTex + vec2(dudv1.x, dudv1.y + gDUDVOffset);
+    vec2 dudv = (texture(gDUDVMapTexture, dudv1).rg * 2.0 - 1) * WaveLength * clamp(FloorToWaterSurface / 20.0, 0.0, 1.0);
+    ReflectionTexCoords = clamp(ReflectionTexCoords + dudv, 0.001, 0.999);
+    RefractionTexCoords = clamp(RefractionTexCoords + dudv, 0.001, 0.999);
+    vec4 reflectionColor = texture(gReflectionTexture, ReflectionTexCoords);
+    vec4 refractionColor = texture(gRefractionTexture, RefractionTexCoords);
     
 
     FragColor = mix(reflectionColor, reflectionColor, 0.5);
+    FragColor = mix(FragColor, vec4(0.0, 0.3, 0.5, 1.0), 0.2);      //Mix with blue-green color
 }
