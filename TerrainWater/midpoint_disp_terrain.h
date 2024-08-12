@@ -33,6 +33,7 @@ class MidpointDispTerrain : public BaseTerrain {
     void CreateMidpointDisplacementF32(float Roughness);
     void DiamondStep(int RectSize, float CurHeight);
     void SquareStep(int RectSize, float CurHeight);
+    float Falloff(float x, float y, float maxDistance);
 };
 
 #endif

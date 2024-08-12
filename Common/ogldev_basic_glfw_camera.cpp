@@ -220,7 +220,24 @@ bool BasicCamera::OnKeyboard(int Key)
         printf("Camera pos: "); m_pos.Print(); printf("\n");
         printf("Camera target: "); m_target.Print(); printf("\n");
         break;
+
+    case GLFW_KEY_EQUAL:
+        m_speed += 1;
+        if (m_speed > 10) {
+            m_speed = 10;
+        }
+        break;
+
+    case GLFW_KEY_MINUS:
+        m_speed -= 1;
+        if (m_speed <= 0) {
+            m_speed = 1;
+        }
+     
+        break;
+
     }
+
 
     if (CameraChangedPos) {
         //        printf("Camera pos: "); m_pos.Print(); printf("\n");

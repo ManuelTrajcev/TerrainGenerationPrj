@@ -16,7 +16,7 @@ const float Tiling  = 6.0;
 
 void main()
 {
-   vec3 NewPosition = (Position + vec3(0.0, gHeight, 0.0));
+    vec3 NewPosition = (Position + vec3(0.0, gHeight, 0.0));
     ClipSpaceCoords = gVP * vec4(NewPosition, 1.0);
     gl_Position = ClipSpaceCoords;
     oTex = TexCoord * Tiling;
