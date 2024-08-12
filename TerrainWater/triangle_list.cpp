@@ -24,7 +24,7 @@ void TriangleList::CreateTriangleList(int Width, int Depth, float WorldScale)
     m_depth = Depth;
     m_width = Width;
 
-    CreateGLState();
+    CreateGLState(); 
 
     PopulateBuffer(WorldScale);
 

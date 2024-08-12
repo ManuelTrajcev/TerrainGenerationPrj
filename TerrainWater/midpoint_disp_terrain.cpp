@@ -14,8 +14,8 @@ void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchS
 
     m_heightMap.InitArray2D(TerrainSize, TerrainSize, 0.0f);
 
-    CreateMidpointDisplacementF32(Roughness);
-
+    //CreateMidpointDisplacementF32(Roughness);
+    FalloffGennerator();
     m_heightMap.Normalize(MinHeight, MaxHeight);
 
     Finalize();    
@@ -141,3 +141,24 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
         }
     }
 }
+
+
+void MidpointDispTerrain::FalloffGennerator() {
+    for (int i = 0; i < m_terrainSize; i++) {
+        for (int j = 0; j < m_terrainSize; j++) {
+            float x = i / (float)m_terrainSize * 2 - 1;
+            float y = j / (float)m_terrainSize * 2 - 1;
+
+            float value = std::max(std::abs(x),std::abs(y));
+
+            float a = 3;
+            float b = 2.2f;
+
+            value = std::pow(value, a) / (std::pow(value, a) + std::pow(b - b * value, a));
+
+
+            m_heightMap.Set(i, j, value);
+        }
+    }
+}
+
