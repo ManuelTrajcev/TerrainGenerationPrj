@@ -43,13 +43,23 @@ void MidpointDispTerrain::CreateMidpointDisplacementF32(float Roughness)
 float MidpointDispTerrain::Falloff(float x, float y, float maxDistance) {
     float center_x = m_terrainSize / 2.0f;
     float center_y = m_terrainSize / 2.0f;
-    float k = 1.0f;
+    float k = 0.6f;
+    float threshold = 0.3f;
 
     float distance = sqrt((x - center_x) * (x - center_x) + (y - center_y) * (y - center_y));
     float normalizedDistance = distance / maxDistance;
 
-    //quadratic falloff
-    return 1.0f - k * (normalizedDistance * normalizedDistance);
+    // Quadratic plateau falloff
+    if (normalizedDistance <= threshold) {
+        return 1.0f;
+    }
+    else {
+        float adjustedDistance = (normalizedDistance - threshold) / (1.0f - threshold);
+        return 1.0f - adjustedDistance * adjustedDistance;
+    }
+
+    // Adjusted quadratic falloff
+    //return 1.0f - k * (normalizedDistance * normalizedDistance);
 }
 
 void MidpointDispTerrain::DiamondStep(int RectSize, float CurHeight)
