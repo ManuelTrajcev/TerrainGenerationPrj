@@ -233,11 +233,11 @@ private:
 
     void InitCamera()
     {
-        Vector3f Pos((float)m_terrainSize, m_maxHeight + 100.0f, (float)m_terrainSize);
+        Vector3f Pos((float)m_terrainSize , m_maxHeight + 200.0f, (float)m_terrainSize );
         Vector3f Target(1.0f, -0.25f, 0.0f);
         Vector3f Up(0.0, 1.0f, 0.0f);
 
-        float FOV = 45.0f;
+        float FOV = 90.0f;
         float zNear = 1.0f;
         float zFar = Z_FAR;
         PersProjInfo persProjInfo = { FOV, (float)WINDOW_WIDTH, (float)WINDOW_HEIGHT, zNear, zFar };

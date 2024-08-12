@@ -3,6 +3,12 @@
   "WorkspaceRootPath": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Windows\\ogldev_vs_2022\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9D07DEB5-FA82-4C36-ADF5-D9227489653C}|TerrainWater\\Terrain_water.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain_water.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9D07DEB5-FA82-4C36-ADF5-D9227489653C}|TerrainWater\\Terrain_water.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9D07DEB5-FA82-4C36-ADF5-D9227489653C}|TerrainWater\\Terrain_water.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
@@ -18,9 +24,6 @@
       "AbsoluteMoniker": "D:0:0:{9D07DEB5-FA82-4C36-ADF5-D9227489653C}|TerrainWater\\Terrain_water.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\triangle_list.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9D07DEB5-FA82-4C36-ADF5-D9227489653C}|TerrainWater\\Terrain_water.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9D07DEB5-FA82-4C36-ADF5-D9227489653C}|TerrainWater\\Terrain_water.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\geomip_grid.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -31,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1156,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,7 +50,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
+              "Title": "terrain_water.cpp",
+              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain_water.cpp",
+              "RelativeDocumentMoniker": "..\\..\\TerrainWater\\terrain_water.cpp",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain_water.cpp*",
+              "RelativeToolTip": "..\\..\\TerrainWater\\terrain_water.cpp*",
+              "ViewState": "AQIAANwAAAAAAAAAAAAtwOsAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-12T12:58:22.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "triangle_list.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\triangle_list.cpp",
               "RelativeDocumentMoniker": "..\\..\\TerrainWater\\triangle_list.cpp",
@@ -60,7 +76,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "terrain.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain.cpp",
               "RelativeDocumentMoniker": "..\\..\\TerrainWater\\terrain.cpp",
@@ -73,20 +89,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "midpoint_disp_terrain.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.cpp",
               "RelativeDocumentMoniker": "..\\..\\TerrainWater\\midpoint_disp_terrain.cpp",
-              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.cpp*",
-              "RelativeToolTip": "..\\..\\TerrainWater\\midpoint_disp_terrain.cpp*",
-              "ViewState": "AQIAAI4AAAAAAAAAAAAtwJ8AAAAiAAAA",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.cpp",
+              "RelativeToolTip": "..\\..\\TerrainWater\\midpoint_disp_terrain.cpp",
+              "ViewState": "AQIAAH8AAAAAAAAAAAAtwKIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-11T16:22:15.707Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "midpoint_disp_terrain.h",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.h",
               "RelativeDocumentMoniker": "..\\..\\TerrainWater\\midpoint_disp_terrain.h",
@@ -99,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "terrain.h",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain.h",
               "RelativeDocumentMoniker": "..\\..\\TerrainWater\\terrain.h",
@@ -112,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "terrain_technique.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain_technique.cpp",
               "RelativeDocumentMoniker": "..\\..\\TerrainWater\\terrain_technique.cpp",
@@ -125,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "geomip_grid.cpp",
               "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\geomip_grid.cpp",
               "RelativeDocumentMoniker": "..\\..\\TerrainWater\\geomip_grid.cpp",
