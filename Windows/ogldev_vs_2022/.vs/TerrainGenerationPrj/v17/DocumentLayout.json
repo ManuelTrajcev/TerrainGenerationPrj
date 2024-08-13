@@ -37,7 +37,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 1156,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,6 +46,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -68,7 +72,7 @@
               "RelativeDocumentMoniker": "..\\..\\TerrainWater\\midpoint_disp_terrain.cpp",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.cpp*",
               "RelativeToolTip": "..\\..\\TerrainWater\\midpoint_disp_terrain.cpp*",
-              "ViewState": "AQIAALYAAAAAAAAAAAAAAMAAAAAAAAAA",
+              "ViewState": "AQIAAJQAAAAAAAAAAAAowJkAAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-11T16:22:15.707Z",
               "EditorCaption": ""

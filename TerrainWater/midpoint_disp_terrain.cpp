@@ -65,7 +65,7 @@ float MidpointDispTerrain::Falloff(float x, float y, float maxDistance) {
 		falloff = 1.0f - adjustedDistance * adjustedDistance;
 	}
 
-	falloff = std::max(falloff, 0.0f);
+	//falloff = std::max(falloff, 0.0f);
 	return falloff;
 
 	// Adjusted quadratic falloff
@@ -103,9 +103,13 @@ void MidpointDispTerrain::DiamondStep(int RectSize, float CurHeight)
 
 			//falloff
 			float falloff = Falloff(mid_x, mid_y, maxDistance);
-
 			float value = (MidPoint + RandValue) * falloff;
 			value = std::min(value, m_maxHeight); // Clamp the height value to m_maxHeight
+
+			if (value < m_maxHeight * 0.5) {		//Check this!!!!!
+				falloff *= 2;
+			}
+
 			m_heightMap.Set(mid_x, mid_y, value);
 		}
 	}
@@ -149,7 +153,7 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 			float falloffTop = Falloff(mid_x, y, maxDistance);
 			float falloffLeft = Falloff(x, mid_y, maxDistance);
 
-			float valueTop = CurTopMid * falloffLeft;
+			float valueTop = CurTopMid * falloffTop;
 			valueTop = std::min(valueTop, m_maxHeight); // Clamp the height value to m_maxHeight
 
 			float valueLeft = CurLeftMid * falloffLeft;
@@ -178,6 +182,7 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold) {
 			float topRight = m_heightMap.Get(x + 1, y - 1);
 			float bottomLeft = m_heightMap.Get(x - 1, y + 1);
 			float bottomRight = m_heightMap.Get(x + 1, y + 1);
+			float newValue;
 
 			// maximum difference between the current value and any neighbor
 			float maxDiff = std::max({ std::abs(currentValue - left),
@@ -189,8 +194,24 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold) {
 									   std::abs(currentValue - bottomLeft),
 									   std::abs(currentValue - bottomRight) });
 
+			float neighborAvg = (left + right + top + bottom + topLeft + topRight + bottomLeft + bottomRight) / 8.0f;
+
 			if (maxDiff > threshold) {
-				float newValue = (left + right + top + bottom + topLeft + topRight + bottomLeft + bottomRight) / 8.0f;
+				float smoothFactor = 0.9f; // smoothing factor for higher points
+
+				// increase smoothing factor for lower points
+				if (currentValue > neighborAvg) {
+					smoothFactor = 1.0f;
+				}
+
+				if (currentValue < m_maxHeight*0.5)
+				{
+					newValue = neighborAvg ;
+				}
+				else
+				{
+					newValue = smoothFactor * neighborAvg + (1.0f - smoothFactor) * currentValue;
+				}
 				tempMap.Set(x, y, newValue);
 			}
 
