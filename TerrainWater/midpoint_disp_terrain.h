@@ -17,6 +17,7 @@ class MidpointDispTerrain : public BaseTerrain {
     float Falloff(float x, float y, float maxDistance);
     void FalloffGennerator();
     void SmoothHeightMap(float threshold);
+    float m_maxHeight;
 };
 
 #endif

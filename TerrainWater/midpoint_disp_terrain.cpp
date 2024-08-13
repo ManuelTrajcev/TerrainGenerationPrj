@@ -10,17 +10,18 @@ void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchS
 
 	m_terrainSize = TerrainSize;
 	m_patchSize = PatchSize;
+	m_maxHeight = MaxHeight;
 
 	SetMinMaxHeight(MinHeight, MaxHeight);
 
 	m_heightMap.InitArray2D(TerrainSize, TerrainSize, 0.0f);
 
 	CreateMidpointDisplacementF32(Roughness);
-	for (int i = 0; i < 5; i++)		//smoothening interations
+	for (int i = 0; i < 10; i++)		//smoothening interations
 	{
 		SmoothHeightMap(0.005);		//smoothening factor
 	}
-	
+
 	m_heightMap.Normalize(MinHeight, MaxHeight);
 
 	Finalize();
@@ -31,7 +32,8 @@ void MidpointDispTerrain::CreateMidpointDisplacementF32(float Roughness)
 {
 	int RectSize = CalcNextPowerOfTwo(m_terrainSize);
 	float CurHeight = (float)RectSize / 2.0f;
-	float HeightReduce = pow(2.0f, -Roughness);
+	float HeightReduce = pow(2.0f, -Roughness * 0.7f); // Reduce roughness impact
+
 
 	while (RectSize > 0) {
 
@@ -53,15 +55,18 @@ float MidpointDispTerrain::Falloff(float x, float y, float maxDistance) {
 
 	float distance = sqrt((x - center_x) * (x - center_x) + (y - center_y) * (y - center_y));
 	float normalizedDistance = distance / maxDistance;
-
+	float falloff;
 	// Quadratic plateau falloff
 	if (normalizedDistance <= threshold) {
-		return 1.0f;
+		falloff = 1.0f;
 	}
 	else {
 		float adjustedDistance = (normalizedDistance - threshold) / (1.0f - threshold);
-		return 1.0f - adjustedDistance * adjustedDistance;
+		falloff = 1.0f - adjustedDistance * adjustedDistance;
 	}
+
+	falloff = std::max(falloff, 0.0f);
+	return falloff;
 
 	// Adjusted quadratic falloff
 	//return 1.0f - k * (normalizedDistance * normalizedDistance);
@@ -99,7 +104,9 @@ void MidpointDispTerrain::DiamondStep(int RectSize, float CurHeight)
 			//falloff
 			float falloff = Falloff(mid_x, mid_y, maxDistance);
 
-			m_heightMap.Set(mid_x, mid_y, (MidPoint + RandValue) * falloff);
+			float value = (MidPoint + RandValue) * falloff;
+			value = std::min(value, m_maxHeight); // Clamp the height value to m_maxHeight
+			m_heightMap.Set(mid_x, mid_y, value);
 		}
 	}
 }
@@ -142,30 +149,18 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 			float falloffTop = Falloff(mid_x, y, maxDistance);
 			float falloffLeft = Falloff(x, mid_y, maxDistance);
 
-			m_heightMap.Set(mid_x, y, CurTopMid * falloffLeft);
-			m_heightMap.Set(x, mid_y, CurLeftMid * falloffLeft);
+			float valueTop = CurTopMid * falloffLeft;
+			valueTop = std::min(valueTop, m_maxHeight); // Clamp the height value to m_maxHeight
+
+			float valueLeft = CurLeftMid * falloffLeft;
+			valueLeft = std::min(valueLeft, m_maxHeight); // Clamp the height value to m_maxHeight
+
+			m_heightMap.Set(mid_x, y, valueTop);
+			m_heightMap.Set(x, mid_y, valueLeft);
 		}
 	}
 }
 
-
-void MidpointDispTerrain::FalloffGennerator() {
-	for (int i = 0; i < m_terrainSize; i++) {
-		for (int j = 0; j < m_terrainSize; j++) {
-			float x = i / (float)m_terrainSize * 2 - 1;
-			float y = j / (float)m_terrainSize * 2 - 1;
-
-			float value = std::max(std::abs(x), std::abs(y));
-
-			float a = 3;
-			float b = 2.2f;
-
-			value = std::pow(value, a) / (std::pow(value, a) + std::pow(b - b * value, a));
-
-			m_heightMap.Set(i, j, value);
-		}
-	}
-}
 
 void MidpointDispTerrain::SmoothHeightMap(float threshold) {
 	Array2D<float> tempMap = m_heightMap;
@@ -174,7 +169,7 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold) {
 		for (int x = 1; x < m_terrainSize - 1; ++x) {
 			float currentValue = m_heightMap.Get(x, y);
 
-			// Get the values of all eight neighbors
+			// values of all eight neighbors
 			float left = m_heightMap.Get(x - 1, y);
 			float right = m_heightMap.Get(x + 1, y);
 			float top = m_heightMap.Get(x, y - 1);
@@ -184,7 +179,7 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold) {
 			float bottomLeft = m_heightMap.Get(x - 1, y + 1);
 			float bottomRight = m_heightMap.Get(x + 1, y + 1);
 
-			// Calculate the maximum difference between the current value and any neighbor
+			// maximum difference between the current value and any neighbor
 			float maxDiff = std::max({ std::abs(currentValue - left),
 									   std::abs(currentValue - right),
 									   std::abs(currentValue - top),
@@ -194,11 +189,12 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold) {
 									   std::abs(currentValue - bottomLeft),
 									   std::abs(currentValue - bottomRight) });
 
-			// If the maximum difference exceeds the threshold, smooth the value
 			if (maxDiff > threshold) {
 				float newValue = (left + right + top + bottom + topLeft + topRight + bottomLeft + bottomRight) / 8.0f;
 				tempMap.Set(x, y, newValue);
 			}
+
+
 		}
 	}
 

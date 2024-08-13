@@ -56,6 +56,8 @@ class BaseTerrain
 
     void ControlGUI(bool Enable) { m_guiEnabled = Enable; }
 
+    float GetMaxHeight();
+
  protected:
 
 	void LoadHeightMapFile(const char* pFilename);
@@ -65,6 +67,8 @@ class BaseTerrain
     void Finalize();
 
     float GetWorldHeight(float x, float z) const;
+
+  
 
     int m_terrainSize = 0;
     int m_patchSize = 0;

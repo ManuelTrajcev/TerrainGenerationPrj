@@ -266,6 +266,11 @@ float BaseTerrain::GetWorldHeight(float x, float z) const
 }
 
 
+float BaseTerrain::GetMaxHeight() {
+	return m_maxHeight;
+}
+
+
 Vector3f BaseTerrain::ConstrainCameraPosToTerrain(const Vector3f& CameraPos)
 {
 	Vector3f NewCameraPos = CameraPos;
