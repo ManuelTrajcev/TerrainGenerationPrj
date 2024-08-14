@@ -5,8 +5,7 @@ layout (location = 1) in vec2 TexCoord;
 
 uniform mat4 gVP;
 uniform float gHeight = 0.0f;
-uniform vec3 gCameraPos;       
-uniform vec3 lightPosition;       
+uniform vec3 gCameraPos;           
 
 out vec2 oTex;
 out vec4 ClipSpaceCoords;

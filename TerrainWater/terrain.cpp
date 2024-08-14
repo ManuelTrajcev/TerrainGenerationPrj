@@ -205,7 +205,7 @@ void BaseTerrain::RenderTerrainReflectionPass(const BasicCamera& Camera)
 	m_terrainTech.SetClipPlane(PlaneNormal, PointOnPlane);
 
 	m_terrainTech.SetVP(CameraUnderWater.GetViewProjMatrix());
-	m_geomipGrid.Render(CameraUnderWater.GetPos(), CameraUnderWater.GetViewProjMatrix());
+	m_geomipGrid.Render(CameraUnderWater.GetPos(), CameraUnderWater.GetViewProjMatrix());	///TODO
 	m_pSkydome->Render(CameraUnderWater);
 	m_terrainTech.Enable();
 	m_water.EndReflectionPass();
@@ -219,7 +219,7 @@ void BaseTerrain::RenderTerrainRefractionPass(const BasicCamera& Camera)
 	Vector3f PointOnPlane(0.0f, m_water.GetWaterHeight() + 0.5f, 0.0f);
 	m_terrainTech.SetClipPlane(PlaneNormal, PointOnPlane);
 	m_terrainTech.SetVP(Camera.GetViewProjMatrix());
-	m_geomipGrid.Render(Camera.GetPos(), Camera.GetViewProjMatrix());
+	m_geomipGrid.Render(Camera.GetPos(), Camera.GetViewProjMatrix());	///TODO
 	m_water.EndRefractionPass();
 }
 
@@ -231,7 +231,7 @@ void BaseTerrain::RenderTerrainDefaultPass(const BasicCamera& Camera)
 	m_terrainTech.SetClipPlane(PlaneNormal, PointOnPlane);
 
 	m_terrainTech.SetVP(Camera.GetViewProjMatrix());
-	m_geomipGrid.Render(Camera.GetPos(), Camera.GetViewProjMatrix());
+	m_geomipGrid.Render(Camera.GetPos(), Camera.GetViewProjMatrix());	///TODO
 }
 
 

@@ -109,6 +109,9 @@ void MidpointDispTerrain::DiamondStep(int RectSize, float CurHeight)
 			if (value < m_maxHeight * 0.5) {		//Check this!!!!!
 				falloff *= 2;
 			}
+			if (x == 0 || x == m_terrainSize - 1 || y == 0 || y == m_terrainSize - 1) {
+				value = 0;
+			}
 
 			m_heightMap.Set(mid_x, mid_y, value);
 		}
@@ -158,6 +161,11 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 
 			float valueLeft = CurLeftMid * falloffLeft;
 			valueLeft = std::min(valueLeft, m_maxHeight); // Clamp the height value to m_maxHeight
+
+			if (x == 0 || x == m_terrainSize - 1 || y == 0 || y == m_terrainSize - 1) {
+				valueTop = 0;
+				valueLeft = 0;
+			}
 
 			m_heightMap.Set(mid_x, y, valueTop);
 			m_heightMap.Set(x, mid_y, valueLeft);
@@ -212,6 +220,11 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold) {
 				{
 					newValue = smoothFactor * neighborAvg + (1.0f - smoothFactor) * currentValue;
 				}
+
+
+				//Option 2
+				//newValue = neighborAvg;
+
 				tempMap.Set(x, y, newValue);
 			}
 
