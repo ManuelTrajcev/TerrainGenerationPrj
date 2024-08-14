@@ -170,6 +170,7 @@ void BaseTerrain::RenderTerrain(const BasicCamera& Camera)
 	}
 
 	m_terrainTech.SetLightDir(m_lightDir);
+	m_terrainTech.SetTextureHeights(m_maxHeight*0.55, m_maxHeight * 0.65, m_maxHeight * 0.8, m_maxHeight * 0.9);
 
 	RenderTerrainReflectionPass(Camera);
 

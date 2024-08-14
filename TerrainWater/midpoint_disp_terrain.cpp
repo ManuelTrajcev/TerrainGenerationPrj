@@ -77,8 +77,8 @@ void MidpointDispTerrain::DiamondStep(int RectSize, float CurHeight)
 	int HalfRectSize = RectSize / 2;
 	float maxDistance = sqrt(2.0f) * m_terrainSize / 2.0f; // Maximum distance from  center
 
-	for (int y = 0; y < m_terrainSize; y += RectSize) {
-		for (int x = 0; x < m_terrainSize; x += RectSize) {
+	for (int y = 10; y < m_terrainSize - 10; y += RectSize) {
+		for (int x = 10; x < m_terrainSize - 10; x += RectSize) {
 			int next_x = (x + RectSize) % m_terrainSize;
 			int next_y = (y + RectSize) % m_terrainSize;
 
@@ -106,13 +106,6 @@ void MidpointDispTerrain::DiamondStep(int RectSize, float CurHeight)
 			float value = (MidPoint + RandValue) * falloff;
 			value = std::min(value, m_maxHeight); // Clamp the height value to m_maxHeight
 
-			if (value < m_maxHeight * 0.5) {		//Check this!!!!!
-				falloff *= 2;
-			}
-			if (x == 0 || x == m_terrainSize - 1 || y == 0 || y == m_terrainSize - 1) {
-				value = 0;
-			}
-
 			m_heightMap.Set(mid_x, mid_y, value);
 		}
 	}
@@ -123,8 +116,8 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 	int HalfRectSize = RectSize / 2;
 	float maxDistance = sqrt(2.0f) * m_terrainSize / 2.0f; // Max distance from the center
 
-	for (int y = 0; y < m_terrainSize; y += RectSize) {
-		for (int x = 0; x < m_terrainSize; x += RectSize) {
+	for (int y = 10; y < m_terrainSize-10; y += RectSize) {
+		for (int x = 10; x < m_terrainSize-10; x += RectSize) {
 			int next_x = (x + RectSize) % m_terrainSize;
 			int next_y = (y + RectSize) % m_terrainSize;
 
@@ -161,11 +154,6 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 
 			float valueLeft = CurLeftMid * falloffLeft;
 			valueLeft = std::min(valueLeft, m_maxHeight); // Clamp the height value to m_maxHeight
-
-			if (x == 0 || x == m_terrainSize - 1 || y == 0 || y == m_terrainSize - 1) {
-				valueTop = 0;
-				valueLeft = 0;
-			}
 
 			m_heightMap.Set(mid_x, y, valueTop);
 			m_heightMap.Set(x, mid_y, valueLeft);

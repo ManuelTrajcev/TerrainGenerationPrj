@@ -217,7 +217,7 @@ private:
         int major_ver = 0;
         int minor_ver = 0;
         bool is_full_screen = false;
-        window = glfw_init(major_ver, minor_ver, WINDOW_WIDTH, WINDOW_HEIGHT, is_full_screen, "Terrain Rendering - Simple Water");
+        window = glfw_init(major_ver, minor_ver, WINDOW_WIDTH, WINDOW_HEIGHT, is_full_screen, "Terrain Rendering - Island");
 
         glfwSetCursorPos(window, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
     }
@@ -249,12 +249,12 @@ private:
     void InitTerrain()
     {
         float WorldScale = 2.0f;
-        float TextureScale = 4.0f;
+        float TextureScale = 32.0f;
         std::vector<string> TextureFilenames;
-        TextureFilenames.push_back("../Content/textures/rocky_trail_02_diff_1k.jpg");
+        TextureFilenames.push_back("../Content/textures/smooth-sand.jpg");
+        TextureFilenames.push_back("../Content/textures/tilable-IMG_0044-verydark.png");
         TextureFilenames.push_back("../Content/textures/coast_sand_rocks_02_diff_2k.jpg");        
-        TextureFilenames.push_back("../Content/textures/brown_mud_leaves_01_diff_2k.jpg");
-        TextureFilenames.push_back("../Content/textures/water.png");
+        TextureFilenames.push_back("../Content/textures/IMGP5493_seamless_1.jpg");
 
         m_terrain.InitTerrain(WorldScale, TextureScale, TextureFilenames);
 
