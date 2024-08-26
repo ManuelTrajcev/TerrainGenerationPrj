@@ -27,6 +27,7 @@ public:
 
 private:
     GLuint m_VPLoc = -1;
+    GLuint m_Time = -1;
     GLuint m_reflectionTexUnitLoc = -1;
     GLuint m_refractionTexUnitLoc = -1;
     GLuint m_heightLoc = -1;
