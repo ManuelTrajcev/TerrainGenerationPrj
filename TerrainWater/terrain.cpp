@@ -201,7 +201,7 @@ void BaseTerrain::RenderTerrainReflectionPass(const BasicCamera& Camera)
 	CameraTargetUnderWater.y *= -1.0f;
 	CameraUnderWater.SetTarget(CameraTargetUnderWater);
 
-	Vector3f PlaneNormal(0.0f, 1.0f, 0.0f);
+	Vector3f PlaneNormal(0.0f, 1.0f, 0.0f);			//TODO
 	Vector3f PointOnPlane(0.0f, m_water.GetWaterHeight() + 0.5f, 0.0f);
 	m_terrainTech.SetClipPlane(PlaneNormal, PointOnPlane);
 

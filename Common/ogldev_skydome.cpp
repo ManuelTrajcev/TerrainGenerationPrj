@@ -137,7 +137,7 @@ void Skydome::Render(const BasicCamera& Camera)
     m_skydomeTech.Enable();
     Matrix4f Rotate;
     static float foo = 0.0f;
-    foo += 0.02f;
+    foo += 0.002f;
     Rotate.InitRotateTransform(0.0f, foo, 0.0f);
     Matrix4f World;
     World.InitTranslationTransform(Camera.GetPos() - Vector3f(0.0f, 0.2f, 0.0f));

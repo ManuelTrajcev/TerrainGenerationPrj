@@ -17,7 +17,8 @@ void main()
 {
     vec3 NewPosition = (Position + vec3(0.0, gHeight, 0.0));
     ClipSpaceCoords = gVP * vec4(NewPosition, 1.0);
+    //ClipSpaceCoords = gVP * vec4(NewPosition, 1.0) * vec4(2.0, 2.0, 2.0, 2.0);  //scale
     gl_Position = ClipSpaceCoords;
-    oTex = TexCoord * Tiling;
+    oTex = TexCoord;
     oVertexToCamera = gCameraPos - NewPosition;      //for calcualting frnsel effect
 }
