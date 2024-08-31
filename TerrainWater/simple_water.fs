@@ -24,13 +24,14 @@ const float Reflectivity = 1.6;
 void main()
 {
     
-    vec4 NDCCoords = (ClipSpaceCoords / ClipSpaceCoords.w) / 2.0f + vec4(0.5);      //Normalized device coordinates (screen cords
+    vec2 NDCCoords = (ClipSpaceCoords.xy / ClipSpaceCoords.w) / 2.0f + 0.5f;      //Normalized device coordinates (screen cords
     vec2 RefractionTexCoords = NDCCoords.xy;
     vec2 ReflectionTexCoords = RefractionTexCoords;
     ReflectionTexCoords.y = 1.0 - ReflectionTexCoords.y;
    
    
-    float Depth = texture(gDepthMap, RefractionTexCoords).r;        //number between 0 and 1
+    float Depth = texture(gDepthMap, RefractionTexCoords).r;        //number between 0 and 1, r - red component from the texture
+    
     //Convert Depth(0-1) to distance
     float ZNear = 1.0;
     float ZFar = 1000.0;
@@ -46,8 +47,6 @@ void main()
     vec4 reflectionColor = texture(gReflectionTexture, ReflectionTexCoords);
     vec4 refractionColor = texture(gRefractionTexture, RefractionTexCoords);
     
-   
-
     vec4 NormalColor = texture(gNormalMap, dudv1);      //Normal map
     vec3 Normal = vec3(NormalColor.r * 2.0 - 1.0, NormalColor.b * 4.0, NormalColor.g * 2.0 - 1.0);
     Normal = normalize(Normal);
@@ -65,4 +64,6 @@ void main()
     FragColor = mix(reflectionColor, refractionColor, 0.5);
     FragColor = mix(FragColor, vec4(0.0, 0.3, 0.5, 1.0), 0.2) + SpecularColor;   //Mix with blue-green color
     FragColor.a = clamp(FloorToWaterSurface / 10.0, 0.0, 1.0);       //Deeper water - darker
+    //    FragColor = vec4(1.0, 1.0, 1.0, 1.0);       
+
 }

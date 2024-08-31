@@ -204,12 +204,12 @@ bool BasicCamera::OnKeyboard(int Key)
         break;
 
     case GLFW_KEY_KP_ADD:
-        m_speed += 0.1f;
+        m_speed += 0.5f;
         printf("Speed changed to %f\n", m_speed);
         break;
 
     case GLFW_KEY_KP_SUBTRACT:
-        m_speed -= 0.1f;
+        m_speed -= 0.5f;
         if (m_speed < 0.1f) {
             m_speed = 0.1f;
         }
@@ -222,14 +222,14 @@ bool BasicCamera::OnKeyboard(int Key)
         break;
 
     case GLFW_KEY_EQUAL:
-        m_speed += 1;
-        if (m_speed > 10) {
+        m_speed += 5;
+        if (m_speed > 30) {
             m_speed = 10;
         }
         break;
 
     case GLFW_KEY_MINUS:
-        m_speed -= 1;
+        m_speed -= 5;
         if (m_speed <= 0) {
             m_speed = 1;
         }

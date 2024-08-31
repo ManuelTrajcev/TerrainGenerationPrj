@@ -30,12 +30,13 @@ bool SimpleWaterTechnique::Init()
     m_refractionTexUnitLoc = GetUniformLocation("gRefractionTexture");
     m_dudvMapTexUnitLoc = GetUniformLocation("gDUDVMapTexture");
     m_normalMapTexUnitLoc = GetUniformLocation("gNormalMap");
-    m_depthMapTexUnitLoc = GetUniformLocation("gDepthMap");
     m_heightLoc = GetUniformLocation("gHeight");
     m_dudvOffsetLoc = GetUniformLocation("gDUDVOffset");
     m_cameraPosLoc = GetUniformLocation("gCameraPos");
     m_lightColorLoc = GetUniformLocation("gLightColor");
     m_reversedLightDirLoc = GetUniformLocation("gReversedLightDir");
+    m_depthMapTexUnitLoc = GetUniformLocation("gDepthMap");     //PROBLEM
+
 
     if (m_VPLoc == INVALID_UNIFORM_LOCATION ||
         m_heightLoc == INVALID_UNIFORM_LOCATION ||
@@ -43,7 +44,7 @@ bool SimpleWaterTechnique::Init()
         m_refractionTexUnitLoc == INVALID_UNIFORM_LOCATION ||
         m_normalMapTexUnitLoc == INVALID_UNIFORM_LOCATION ||
         m_dudvMapTexUnitLoc == INVALID_UNIFORM_LOCATION ||
-        m_depthMapTexUnitLoc == INVALID_UNIFORM_LOCATION ||
+        m_depthMapTexUnitLoc == INVALID_UNIFORM_LOCATION ||     
         m_dudvOffsetLoc == INVALID_UNIFORM_LOCATION ||
         m_cameraPosLoc == INVALID_UNIFORM_LOCATION ||
         m_lightColorLoc == INVALID_UNIFORM_LOCATION ||
@@ -103,12 +104,6 @@ void SimpleWaterTechnique::SetNormalMapTextureUnit(unsigned int TextureUnit)
 }
 
 
-void SimpleWaterTechnique::SetDepthMapTextureUnit(unsigned int TextureUnit)
-{
-    glUniform1i(m_depthMapTexUnitLoc, TextureUnit);
-}
-
-
 void SimpleWaterTechnique::SetLightColor(const Vector3f& LightColor)
 {
     glUniform3f(m_lightColorLoc, LightColor.x, LightColor.y, LightColor.z);
@@ -120,4 +115,10 @@ void SimpleWaterTechnique::SetLightDir(const Vector3f& LightDir)
     Vector3f ReversedLightDir = LightDir * -1.0f;
     ReversedLightDir.Normalize();
     glUniform3f(m_reversedLightDirLoc, ReversedLightDir.x, ReversedLightDir.y, ReversedLightDir.z);
+}
+
+
+void SimpleWaterTechnique::SetDepthMapTextureUnit(unsigned int TextureUnit)
+{
+    glUniform1i(m_depthMapTexUnitLoc, TextureUnit);
 }

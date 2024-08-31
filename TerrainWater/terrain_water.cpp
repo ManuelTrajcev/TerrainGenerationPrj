@@ -44,7 +44,7 @@ public:
 
     void Init()
     {
-        CreateWindow_(); // added '_' because of conflict with Windows.h
+        CreateWindow_();
 
         InitCallbacks();
 
@@ -62,12 +62,11 @@ public:
             glfwPollEvents();
 
             if (m_showGui) {
-                // Start the Dear ImGui frame
                 ImGui_ImplOpenGL3_NewFrame();
                 ImGui_ImplGlfw_NewFrame();
                 ImGui::NewFrame();
                                  
-                ImGui::Begin("Terrain Water Demo"); 
+                ImGui::Begin("Island Terrain"); 
 
                 ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, m_maxHeight);
 
@@ -123,7 +122,7 @@ public:
 
     void PassiveMouseCB(int x, int y)
     {
-        if (!m_showGui && !m_isPaused) {
+        if (!m_isPaused) {
             m_pGameCamera->OnMouse(x, y);
         }
     }
@@ -185,12 +184,12 @@ public:
                 break;
 
             case GLFW_KEY_F:
-                m_waterHeight += 1.0f;
+                m_waterHeight += 10.0f;
                 m_terrain.SetWaterHeight(m_waterHeight);
                 break;
 
             case GLFW_KEY_V:
-                m_waterHeight -= 1.0f;
+                m_waterHeight -= 10.0f;
                 m_terrain.SetWaterHeight(m_waterHeight);
                 break;
             }
