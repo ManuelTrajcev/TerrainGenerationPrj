@@ -174,22 +174,22 @@ bool BasicCamera::OnKeyboard(int Key)
         break;
 
     case GLFW_KEY_UP:
-        m_AngleV += m_speed;
+        m_AngleV += 1;
         Update();
         break;
 
     case GLFW_KEY_DOWN:
-        m_AngleV -= m_speed;
+        m_AngleV -= 1;
         Update();
         break;
 
     case GLFW_KEY_LEFT:
-        m_AngleH -= m_speed;
+        m_AngleH -= 1;
         Update();
         break;
 
     case GLFW_KEY_RIGHT:
-        m_AngleH += m_speed;
+        m_AngleH += 1;
         Update();
         break;
 

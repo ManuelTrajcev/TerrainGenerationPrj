@@ -61,35 +61,55 @@ public:
         while (!glfwWindowShouldClose(window)) {
             glfwPollEvents();
 
+            // Clear buffers and render scene
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Clear buffers
+            RenderScene();
+
+            // Render ImGui GUI
             if (m_showGui) {
                 ImGui_ImplOpenGL3_NewFrame();
                 ImGui_ImplGlfw_NewFrame();
                 ImGui::NewFrame();
-                                 
-                ImGui::Begin("Island Terrain"); 
+
+                // Set the ImGui window background to be transparent
+                ImGui::GetStyle().Colors[ImGuiCol_WindowBg].w = 0.5f; // 50% transparent
+
+                static int Iterations = 100;
+                static float MaxHeight = 200.0f;
+                static float Roughness = 1.5f;
+
+                ImGui::Begin("Island Terrain");
 
                 ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, m_maxHeight);
-
                 m_terrain.SetWaterHeight(m_waterHeight);
+
+                ImGui::SliderInt("Iterations", &Iterations, 0, 1000);
+                ImGui::SliderFloat("MaxHeight", &MaxHeight, 0.0f, 1000.0f);
+                ImGui::SliderFloat("Roughness", &Roughness, 0.0f, 5.0f);
+
+                if (ImGui::Button("Generate")) {
+                    m_terrain.Destroy();
+                    int Size = 257;
+                    float MinHeight = 0.0f;
+                    InitTerrain();
+                }
 
                 ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
                 ImGui::End();
 
-                // Rendering
+                // Rendering ImGui
                 ImGui::Render();
                 int display_w, display_h;
                 glfwGetFramebufferSize(window, &display_w, &display_h);
                 glViewport(0, 0, display_w, display_h);
-                glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
                 ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
             }
-
-            RenderScene();            
 
             glfwSwapBuffers(window);
         }
     }
+
+
 
 
     void RenderScene()
@@ -160,11 +180,6 @@ public:
 
             case GLFW_KEY_P:
                 m_isPaused = !m_isPaused;
-                break;
-
-            case GLFW_KEY_R:
-                m_guiEnabled = !m_guiEnabled;
-                m_terrain.ControlGUI(m_guiEnabled);
                 break;
 
             case GLFW_KEY_SPACE:
@@ -285,6 +300,69 @@ private:
         ImGui_ImplOpenGL3_Init(glsl_version);
     }
 
+    void CreateImGuiWindow()
+    {
+        imguiWindow = glfwCreateWindow(800, 600, "ImGui Window", nullptr, nullptr);
+        if (!imguiWindow) {
+            fprintf(stderr, "Failed to create GLFW window for ImGui\n");
+            return;
+        }
+
+        glfwMakeContextCurrent(imguiWindow);
+        glfwSwapInterval(1);
+
+        // Initialize OpenGL loader (GLEW)
+        if (glewInit() != GLEW_OK) {
+            fprintf(stderr, "Failed to initialize OpenGL loader!\n");
+            return;
+        }
+
+        // Initialize ImGui context for this window
+        ImGui::CreateContext();
+        ImGui_ImplGlfw_InitForOpenGL(imguiWindow, true);
+        const char* glsl_version = "#version 130";
+        ImGui_ImplOpenGL3_Init(glsl_version);
+        ImGui::StyleColorsDark();
+    }
+
+    void RenderImGui()
+    {
+        glfwMakeContextCurrent(imguiWindow);
+        glfwPollEvents();
+
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+
+        ImGui::GetStyle().Colors[ImGuiCol_WindowBg].w = 0.5f; // 50% transparent
+
+        static int Iterations = 100;
+        static float MaxHeight = 200.0f;
+        static float Roughness = 1.5f;
+
+        ImGui::Begin("Island Terrain");
+        ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, m_maxHeight);
+        m_terrain.SetWaterHeight(m_waterHeight);
+        ImGui::SliderInt("Iterations", &Iterations, 0, 1000);
+        ImGui::SliderFloat("MaxHeight", &MaxHeight, 0.0f, 1000.0f);
+        ImGui::SliderFloat("Roughness", &Roughness, 0.0f, 5.0f);
+        if (ImGui::Button("Generate")) {
+            m_terrain.Destroy();
+            int Size = 257;
+            float MinHeight = 0.0f;
+            InitTerrain();
+        }
+        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+        ImGui::End();
+
+        ImGui::Render();
+        int display_w, display_h;
+        glfwGetFramebufferSize(imguiWindow, &display_w, &display_h);
+        glViewport(0, 0, display_w, display_h);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    }
+
     void ConstrainCameraToTerrain()
     {
         Vector3f NewCameraPos = m_terrain.ConstrainCameraPosToTerrain(m_pGameCamera->GetPos());
@@ -294,6 +372,7 @@ private:
 
 
     GLFWwindow* window = NULL;
+    GLFWwindow* imguiWindow = NULL;
     BasicCamera* m_pGameCamera = NULL;
     bool m_isWireframe = false;
     MidpointDispTerrain m_terrain;
@@ -355,7 +434,6 @@ int main(int argc, char** argv)
     glEnable(GL_CULL_FACE);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CLIP_DISTANCE0);
-
 
     app->Run();
 
