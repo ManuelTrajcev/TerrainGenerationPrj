@@ -19,21 +19,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 822,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "terrain.cpp",
-              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain.cpp",
-              "RelativeDocumentMoniker": "..\\..\\TerrainWater\\terrain.cpp",
-              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain.cpp",
-              "RelativeToolTip": "..\\..\\TerrainWater\\terrain.cpp",
-              "ViewState": "AQIAAIoAAAAAAAAAAAAowJYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-01T08:44:42.047Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
@@ -48,16 +35,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "terrain_water.cpp",
-              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain_water.cpp",
-              "RelativeDocumentMoniker": "..\\..\\TerrainWater\\terrain_water.cpp",
-              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain_water.cpp",
-              "RelativeToolTip": "..\\..\\TerrainWater\\terrain_water.cpp",
-              "ViewState": "AQIAAGoAAAAAAAAAAAAowF8AAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "terrain.cpp",
+              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain.cpp",
+              "RelativeDocumentMoniker": "..\\..\\TerrainWater\\terrain.cpp",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain.cpp",
+              "RelativeToolTip": "..\\..\\TerrainWater\\terrain.cpp",
+              "ViewState": "AQIAABYBAAAAAAAAAAAowB0BAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-31T16:49:38.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-01T08:44:42.047Z"
             },
             {
               "$type": "Document",
@@ -67,9 +53,21 @@
               "RelativeDocumentMoniker": "..\\..\\Common\\ogldev_basic_glfw_camera.cpp",
               "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Common\\ogldev_basic_glfw_camera.cpp",
               "RelativeToolTip": "..\\..\\Common\\ogldev_basic_glfw_camera.cpp",
-              "ViewState": "AQIAAHgBAAAAAAAAAAAkwIYBAAAXAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAYwCIAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-01T08:00:39.994Z",
+              "WhenOpened": "2024-09-01T08:00:39.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "terrain_water.cpp",
+              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain_water.cpp",
+              "RelativeDocumentMoniker": "..\\..\\TerrainWater\\terrain_water.cpp",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\terrain_water.cpp*",
+              "RelativeToolTip": "..\\..\\TerrainWater\\terrain_water.cpp*",
+              "ViewState": "AQIAAPsAAAAAAAAAAAAtwP8AAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-31T16:49:38.67Z",
               "EditorCaption": ""
             }
           ]
