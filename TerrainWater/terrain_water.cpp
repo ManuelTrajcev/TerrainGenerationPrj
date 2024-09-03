@@ -18,6 +18,7 @@
 #include "demo_config.h"
 #include "texture_config.h"
 #include "midpoint_disp_terrain.h"
+#include <ctime>
 
 static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 static void CursorPosCallback(GLFWwindow* window, double x, double y);
@@ -72,7 +73,7 @@ public:
 				ImGui::GetStyle().Colors[ImGuiCol_WindowBg].w = 0.5f; 
 
 				static int Iterations = 100;
-				static float MaxHeight = 200.0f;
+				static float MaxHeight = 500.0f;
 				static float Roughness = 1.5f;
 
 				ImGui::Begin("Island Terrain");
@@ -80,14 +81,13 @@ public:
 				ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, m_maxHeight);
 				m_terrain.SetWaterHeight(m_waterHeight);
 
-				ImGui::SliderInt("Iterations", &Iterations, 0, 1000);
-				ImGui::SliderFloat("MaxHeight", &MaxHeight, 0.0f, 1000.0f);
-				ImGui::SliderFloat("Roughness", &Roughness, 0.0f, 5.0f);
+				ImGui::SliderFloat("MaxHeight", &this->m_maxHeight, 0.0f, 1000.0f);
+				ImGui::SliderFloat("Roughness", &this->m_roughness, 0.5f, 2.5f);
+	
 
 				if (ImGui::Button("Generate")) {
-					m_terrain.Destroy();
-					int Size = 257;
-					float MinHeight = 0.0f;
+					g_seed = static_cast<unsigned int>(std::time(nullptr));
+					std::srand(g_seed);
 					InitTerrain();
 				}
 
@@ -275,6 +275,8 @@ private:
 		TextureFilenames.push_back("../Content/textures/tilable-IMG_0044-verydark.png");
 		TextureFilenames.push_back("../Content/textures/coast_sand_rocks_02_diff_2k.jpg");
 		TextureFilenames.push_back("../Content/textures/IMGP5493_seamless_1.jpg");
+
+		m_terrain.Destroy();
 
 		m_terrain.InitTerrain(WorldScale, TextureScale, TextureFilenames);
 

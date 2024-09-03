@@ -156,6 +156,11 @@ void BaseTerrain::Render(const BasicCamera& Camera)
 }
 
 
+float BaseTerrain::GetWaterHeight()
+{
+	return m_water.GetWaterHeight();
+}
+
 void BaseTerrain::RenderTerrain(const BasicCamera& Camera)
 {
 	Matrix4f VP = Camera.GetViewProjMatrix();

@@ -1,5 +1,6 @@
 #include "midpoint_disp_terrain.h"
 #include <cmath>
+#include <algorithm>
 
 void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchSize, float Roughness, float MinHeight, float MaxHeight)
 {
@@ -11,19 +12,22 @@ void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchS
 	m_terrainSize = TerrainSize;
 	m_patchSize = PatchSize;
 	m_maxHeight = MaxHeight;
+	float scale = 1.0;
 
 	SetMinMaxHeight(MinHeight, MaxHeight);
 
 	m_heightMap.InitArray2D(TerrainSize, TerrainSize, 0.0f);
 
 	CreateMidpointDisplacementF32(Roughness);
-	for (int i = 0; i < 10; i++)		//smoothening interations
+
+	for (int i = 0; i < 20; i++)		//smoothening interations
 	{
-		SmoothHeightMap(0.005);		//smoothening factor
+		SmoothHeightMap(0.005, true);		//smoothening factor
 	}
 
-	m_heightMap.Normalize(MinHeight, MaxHeight);
+	ApplyIslandFalloff(scale);
 
+	m_heightMap.Normalize(MinHeight, MaxHeight);
 	Finalize();
 }
 
@@ -104,8 +108,7 @@ void MidpointDispTerrain::DiamondStep(int RectSize, float CurHeight)
 			//falloff
 			float falloff = Falloff(mid_x, mid_y, maxDistance);
 			float value = (MidPoint + RandValue) * falloff;
-			value = std::min(value, m_maxHeight); // Clamp the height value to m_maxHeight
-
+			value = std::min(value, m_maxHeight);
 			m_heightMap.Set(mid_x, mid_y, value);
 		}
 	}
@@ -116,8 +119,8 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 	int HalfRectSize = RectSize / 2;
 	float maxDistance = sqrt(2.0f) * m_terrainSize / 2.0f; // Max distance from the center
 
-	for (int y = 10; y < m_terrainSize-10; y += RectSize) {
-		for (int x = 10; x < m_terrainSize-10; x += RectSize) {
+	for (int y = 10; y < m_terrainSize - 10; y += RectSize) {
+		for (int x = 10; x < m_terrainSize - 10; x += RectSize) {
 			int next_x = (x + RectSize) % m_terrainSize;
 			int next_y = (y + RectSize) % m_terrainSize;
 
@@ -150,10 +153,10 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 			float falloffLeft = Falloff(x, mid_y, maxDistance);
 
 			float valueTop = CurTopMid * falloffTop;
-			valueTop = std::min(valueTop, m_maxHeight); // Clamp the height value to m_maxHeight
+			valueTop = std::min(valueTop, m_maxHeight);
 
 			float valueLeft = CurLeftMid * falloffLeft;
-			valueLeft = std::min(valueLeft, m_maxHeight); // Clamp the height value to m_maxHeight
+			valueLeft = std::min(valueLeft, m_maxHeight);
 
 			m_heightMap.Set(mid_x, y, valueTop);
 			m_heightMap.Set(x, mid_y, valueLeft);
@@ -162,8 +165,26 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 }
 
 
-void MidpointDispTerrain::SmoothHeightMap(float threshold) {
+void MidpointDispTerrain::SmoothHeightMap(float threshold, bool isFirst) {
 	Array2D<float> tempMap = m_heightMap;
+	int borderSize = m_terrainSize / 8;
+
+	if (isFirst) {
+		for (int i = 0; i < m_terrainSize; i++)
+		{
+			tempMap.Set(i, 0, 0.0);
+			m_heightMap.Set(i, 0, 0.0);
+			tempMap.Set(i, m_terrainSize - 1, 0.0);
+			m_heightMap.Set(i, m_terrainSize - 1, 0.0);
+
+			tempMap.Set(0, i, 0.0);
+			m_heightMap.Set(0, i, 0.0);
+
+			tempMap.Set(m_terrainSize - 1, i, 0.0);
+			m_heightMap.Set(m_terrainSize - 1, i, 0.0);
+		}
+	}
+
 
 	for (int y = 1; y < m_terrainSize - 1; ++y) {
 		for (int x = 1; x < m_terrainSize - 1; ++x) {
@@ -194,36 +215,63 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold) {
 
 			if (maxDiff > threshold) {
 				float smoothFactor = 0.9f; // smoothing factor for higher points
-
 				// increase smoothing factor for lower points
 				if (currentValue > neighborAvg) {
 					smoothFactor = 1.0f;
 				}
 
-				if (currentValue < m_maxHeight*0.5)
+				if (currentValue < m_maxHeight * 0.5)
 				{
-					newValue = neighborAvg ;
+					newValue = neighborAvg;
 				}
 				else
 				{
 					newValue = smoothFactor * neighborAvg + (1.0f - smoothFactor) * currentValue;
 				}
-
-
 				//Option 2
-				//newValue = neighborAvg;
+				//newValue = neighborAvg
+			//	if (isFirst)
+				{
+					//	if (x < borderSize || x >= m_terrainSize - borderSize || y < borderSize || y >= m_terrainSize - borderSize) {
+					//		if (newValue > GetWaterHeight()) {
+					//			float rand = RandomFloatRange(0.6,0.8);
+					//			newValue = GetWaterHeight()*rand;
+					//		}
+					//	}
+					//}
 
-				tempMap.Set(x, y, newValue);
+					tempMap.Set(x, y, newValue);
+				}
 			}
-
-
 		}
+		m_heightMap = tempMap;
 	}
-
-	m_heightMap = tempMap;
 }
 
 
+float RadialFalloff(float x, float y, float size, float scale) {
+	float nx = (x / size) * 2 - 1;  // Normalize x to range [-1, 1]
+	float ny = (y / size) * 2 - 1;  // Normalize y to range [-1, 1]
+	float steepness = 5.0f;
+	float distance = sqrt(nx * nx + ny * ny);  // Distance from the center
+
+	// Apply logarithmic falloff
+	float logFalloff = log(1 + steepness * distance) / log(1 + steepness);
+
+	float falloff = 1.0f - (logFalloff / scale);
+	falloff = falloff > 0.0 ? falloff : 0.0;
+	falloff = falloff < 1.0 ? falloff : 1.0;
+	return falloff, 0.0f, 1.0f;  // Ensure falloff is within [0, 1]
+}
 
 
+void MidpointDispTerrain::ApplyIslandFalloff(float scale) {
+	for (int y = 0; y < m_terrainSize; ++y) {
+		for (int x = 0; x < m_terrainSize; ++x) {
+			float falloff = RadialFalloff(x, y, m_terrainSize, scale);
+			float currentHeight = m_heightMap.Get(x, y);
 
+			m_heightMap.Set(x, y, currentHeight * falloff);
+		}
+	}
+}

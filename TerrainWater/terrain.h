@@ -76,6 +76,7 @@ class BaseTerrain
     Array2D<float> m_heightMap;
     Texture* m_pTextures[4] = { 0 };
     float m_textureScale = 1.0f;
+    float GetWaterHeight();
 
 private:
     void RenderTerrain(const BasicCamera& Camera);
