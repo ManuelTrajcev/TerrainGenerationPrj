@@ -72,7 +72,6 @@ public:
 
 				ImGui::GetStyle().Colors[ImGuiCol_WindowBg].w = 0.5f; 
 
-				static int Iterations = 100;
 				static float MaxHeight = 500.0f;
 				static float Roughness = 1.5f;
 
@@ -86,8 +85,6 @@ public:
 	
 
 				if (ImGui::Button("Generate")) {
-					g_seed = static_cast<unsigned int>(std::time(nullptr));
-					std::srand(g_seed);
 					InitTerrain();
 				}
 
@@ -390,7 +387,7 @@ private:
 	int m_terrainSize = 1025;	//2n*1024 + 1
 	float m_roughness = 1.5f;
 	float m_minHeight = 0.0f;
-	float m_maxHeight = 556.0f;
+	float m_maxHeight = 500.0f;
 	int m_patchSize = 33;
 	float m_counter = 0.0f;
 	bool m_constrainCamera = false;
@@ -427,7 +424,7 @@ int main(int argc, char** argv)
 #ifdef _WIN64
 	g_seed = GetCurrentProcessId();
 #else
-	g_seed = getpid();
+	g_seed = 13146;
 #endif
 	printf("random seed %d\n", g_seed);
 

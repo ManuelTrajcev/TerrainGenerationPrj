@@ -16,7 +16,9 @@ class MidpointDispTerrain : public BaseTerrain {
     void SquareStep(int RectSize, float CurHeight);
     float Falloff(float x, float y, float maxDistance);
     void SmoothHeightMap(float threshold, bool isFirst);
+    float RadialFalloff(float x, float y, float size, float minHeight, float maxHeight, float waterHeight);
     void ApplyIslandFalloff(float scale);
+    void AdjustOutterHeightMap(float waterHeight);
     float m_maxHeight;
 };
 

@@ -4,11 +4,6 @@
 
 void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchSize, float Roughness, float MinHeight, float MaxHeight)
 {
-	if (Roughness < 0.0f) {
-		printf("%s: roughness must be positive - %f\n", __FUNCTION__, Roughness);
-		exit(0);
-	}
-
 	m_terrainSize = TerrainSize;
 	m_patchSize = PatchSize;
 	m_maxHeight = MaxHeight;
@@ -201,7 +196,7 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold, bool isFirst) {
 			float bottomRight = m_heightMap.Get(x + 1, y + 1);
 			float newValue;
 
-			// maximum difference between the current value and any neighbor
+		
 			float maxDiff = std::max({ std::abs(currentValue - left),
 									   std::abs(currentValue - right),
 									   std::abs(currentValue - top),
@@ -248,30 +243,59 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold, bool isFirst) {
 	}
 }
 
-
-float RadialFalloff(float x, float y, float size, float scale) {
-	float nx = (x / size) * 2 - 1;  // Normalize x to range [-1, 1]
-	float ny = (y / size) * 2 - 1;  // Normalize y to range [-1, 1]
-	float steepness = 5.0f;
-	float distance = sqrt(nx * nx + ny * ny);  // Distance from the center
-
-	// Apply logarithmic falloff
-	float logFalloff = log(1 + steepness * distance) / log(1 + steepness);
-
-	float falloff = 1.0f - (logFalloff / scale);
-	falloff = falloff > 0.0 ? falloff : 0.0;
-	falloff = falloff < 1.0 ? falloff : 1.0;
-	return falloff, 0.0f, 1.0f;  // Ensure falloff is within [0, 1]
+float smoothstep(float edge0, float edge1, float x) {
+	float t = (x - edge0) / (edge1 - edge0);
+	t = std::max(t, 0.0f);
+	t = std::min(t, 1.0f);
+	return t * t * (3 - 2 * t);
 }
 
 
+float MidpointDispTerrain::RadialFalloff(float x, float y, float size, float minHeight, float maxHeight, float waterHeight) {
+	float nx = (x / size) * 2 - 1;  // Normalize x to range [-1, 1]
+	float ny = (y / size) * 2 - 1;  // Normalize y to range [-1, 1]
+
+	float distance = sqrt(nx * nx + ny * ny);  // Distance from the center
+
+	
+	float falloff = 1.0f - smoothstep(0.7f, 1.0f, distance);
+
+	float adjustedFalloff = std::min(falloff, (waterHeight - minHeight) / (maxHeight - minHeight));
+
+	return adjustedFalloff;
+}
+
+
+
 void MidpointDispTerrain::ApplyIslandFalloff(float scale) {
+	float waterHeight = GetWaterHeight(); 
+
 	for (int y = 0; y < m_terrainSize; ++y) {
 		for (int x = 0; x < m_terrainSize; ++x) {
-			float falloff = RadialFalloff(x, y, m_terrainSize, scale);
+			float falloff = RadialFalloff(x, y, m_terrainSize, 0.0f, m_maxHeight, waterHeight);
 			float currentHeight = m_heightMap.Get(x, y);
 
-			m_heightMap.Set(x, y, currentHeight * falloff);
+			float newHeight = currentHeight * falloff;
+			newHeight = std::min(newHeight, waterHeight - 1.0f);  
+			m_heightMap.Set(x, y, newHeight);
+		}
+	}
+}
+
+void MidpointDispTerrain::AdjustOutterHeightMap(float waterHeight) {
+	int borderSize = m_terrainSize / 16; 
+
+	for (int y = 0; y < m_terrainSize; ++y) {
+		for (int x = 0; x < m_terrainSize; ++x) {
+			float currentHeight = m_heightMap.Get(x, y);
+
+			float distanceToEdge = std::min({ x, y, m_terrainSize - x - 1, m_terrainSize - y - 1 });
+			float borderThreshold = m_terrainSize / 16.0f;
+
+			if (distanceToEdge < borderThreshold) {
+				float newHeight = std::min(currentHeight, waterHeight - 1.0f);
+				m_heightMap.Set(x, y, newHeight);
+			}
 		}
 	}
 }
