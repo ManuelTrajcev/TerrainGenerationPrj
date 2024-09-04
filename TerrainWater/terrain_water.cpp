@@ -77,11 +77,12 @@ public:
 
 				ImGui::Begin("Island Terrain");
 
-				ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, m_maxHeight);
+				ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, 500.0f);
 				m_terrain.SetWaterHeight(m_waterHeight);
 
-				ImGui::SliderFloat("MaxHeight", &this->m_maxHeight, 0.0f, 1000.0f);
+				ImGui::SliderFloat("MaxHeight", &this->m_maxHeight, 100.0f, 1000.0f);
 				ImGui::SliderFloat("Roughness", &this->m_roughness, 0.5f, 2.5f);
+				ImGui::SliderFloat("Falloff Factor", &this->m_falloffFactor, 0.0f, 2.0f);
 	
 
 				if (ImGui::Button("Generate")) {
@@ -275,15 +276,15 @@ private:
 
 		m_terrain.Destroy();
 
+		m_terrain.SetWaterHeight(m_waterHeight);
+
 		m_terrain.InitTerrain(WorldScale, TextureScale, TextureFilenames);
 
-		m_terrain.CreateMidpointDisplacement(m_terrainSize, m_patchSize, m_roughness, m_minHeight, m_maxHeight);
+		m_terrain.CreateMidpointDisplacement(m_terrainSize, m_patchSize, m_roughness, m_minHeight, m_maxHeight, m_falloffFactor);
 
 		Vector3f LightDir(0.0f, -1.0f, -1.0f);
 
 		m_terrain.SetLightDir(LightDir);
-
-		m_terrain.SetWaterHeight(m_waterHeight);
 
 		m_terrain.ControlGUI(m_guiEnabled);
 	}
@@ -344,17 +345,16 @@ private:
 		static int Iterations = 100;
 		static float MaxHeight = 200.0f;
 		static float Roughness = 1.5f;
+		static float FalloffFactor = 1.0f;
 
 		ImGui::Begin("Island Terrain");
 		ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, m_maxHeight);
 		m_terrain.SetWaterHeight(m_waterHeight);
-		ImGui::SliderInt("Iterations", &Iterations, 0, 1000);
 		ImGui::SliderFloat("MaxHeight", &MaxHeight, 0.0f, 1000.0f);
 		ImGui::SliderFloat("Roughness", &Roughness, 0.0f, 5.0f);
+		ImGui::SliderFloat("Falloff Factor", &FalloffFactor, 0.0f, 2.0f);
 		if (ImGui::Button("Generate")) {
 			m_terrain.Destroy();
-			int Size = 257;
-			float MinHeight = 0.0f;
 			InitTerrain();
 		}
 		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
@@ -388,10 +388,11 @@ private:
 	float m_roughness = 1.5f;
 	float m_minHeight = 0.0f;
 	float m_maxHeight = 500.0f;
+	float m_falloffFactor = 1.0f;
 	int m_patchSize = 33;
 	float m_counter = 0.0f;
 	bool m_constrainCamera = false;
-	float m_waterHeight = m_maxHeight * 0.5f;
+	float m_waterHeight = 200.0f;
 	bool m_guiEnabled = false;
 };
 

@@ -2,7 +2,7 @@
 #include <cmath>
 #include <algorithm>
 
-void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchSize, float Roughness, float MinHeight, float MaxHeight)
+void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchSize, float Roughness, float MinHeight, float MaxHeight, float FalloffFactor)
 {
 	m_terrainSize = TerrainSize;
 	m_patchSize = PatchSize;
@@ -15,14 +15,17 @@ void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchS
 
 	CreateMidpointDisplacementF32(Roughness);
 
+	//AdjustOutterHeightMap(GetWaterHeight());
+	//ApplyIslandFalloff(scale);
+
 	for (int i = 0; i < 20; i++)		//smoothening interations
 	{
 		SmoothHeightMap(0.005, true);		//smoothening factor
 	}
 
-	ApplyIslandFalloff(scale);
+	m_heightMap.Normalize(MinHeight, MaxHeight, FalloffFactor);
+	
 
-	m_heightMap.Normalize(MinHeight, MaxHeight);
 	Finalize();
 }
 
@@ -64,11 +67,7 @@ float MidpointDispTerrain::Falloff(float x, float y, float maxDistance) {
 		falloff = 1.0f - adjustedDistance * adjustedDistance;
 	}
 
-	//falloff = std::max(falloff, 0.0f);
 	return falloff;
-
-	// Adjusted quadratic falloff
-	//return 1.0f - k * (normalizedDistance * normalizedDistance);
 }
 
 void MidpointDispTerrain::DiamondStep(int RectSize, float CurHeight)
@@ -223,27 +222,15 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold, bool isFirst) {
 				{
 					newValue = smoothFactor * neighborAvg + (1.0f - smoothFactor) * currentValue;
 				}
-				//Option 2
-				//newValue = neighborAvg
-			//	if (isFirst)
-				{
-					//	if (x < borderSize || x >= m_terrainSize - borderSize || y < borderSize || y >= m_terrainSize - borderSize) {
-					//		if (newValue > GetWaterHeight()) {
-					//			float rand = RandomFloatRange(0.6,0.8);
-					//			newValue = GetWaterHeight()*rand;
-					//		}
-					//	}
-					//}
-
+		
 					tempMap.Set(x, y, newValue);
-				}
 			}
 		}
 		m_heightMap = tempMap;
 	}
 }
 
-float smoothstep(float edge0, float edge1, float x) {
+float smoothstep(float edge0, float edge1, float x) {	//For Deletion
 	float t = (x - edge0) / (edge1 - edge0);
 	t = std::max(t, 0.0f);
 	t = std::min(t, 1.0f);
@@ -251,6 +238,7 @@ float smoothstep(float edge0, float edge1, float x) {
 }
 
 
+//For Deletion
 float MidpointDispTerrain::RadialFalloff(float x, float y, float size, float minHeight, float maxHeight, float waterHeight) {
 	float nx = (x / size) * 2 - 1;  // Normalize x to range [-1, 1]
 	float ny = (y / size) * 2 - 1;  // Normalize y to range [-1, 1]
@@ -282,18 +270,17 @@ void MidpointDispTerrain::ApplyIslandFalloff(float scale) {
 	}
 }
 
-void MidpointDispTerrain::AdjustOutterHeightMap(float waterHeight) {
-	int borderSize = m_terrainSize / 16; 
-
+void MidpointDispTerrain::AdjustOutterHeightMap(float waterHeight) {		//For Deletion
 	for (int y = 0; y < m_terrainSize; ++y) {
 		for (int x = 0; x < m_terrainSize; ++x) {
 			float currentHeight = m_heightMap.Get(x, y);
 
 			float distanceToEdge = std::min({ x, y, m_terrainSize - x - 1, m_terrainSize - y - 1 });
-			float borderThreshold = m_terrainSize / 16.0f;
+			float borderThreshold = m_terrainSize / 8.0f;
 
-			if (distanceToEdge < borderThreshold) {
-				float newHeight = std::min(currentHeight, waterHeight - 1.0f);
+			if (distanceToEdge < borderThreshold || (m_terrainSize - distanceToEdge) < borderThreshold) {
+				//printf("Lowering..\n");
+				float newHeight = std::min(currentHeight, (waterHeight - RandomFloatRange(5.0, 20.0)));
 				m_heightMap.Set(x, y, newHeight);
 			}
 		}

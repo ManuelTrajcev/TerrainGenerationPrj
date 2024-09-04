@@ -175,21 +175,40 @@ public:
         }
     }
 
-    void Normalize(Type MinRange, Type MaxRange)
+    void Normalize(Type MinRange, Type MaxRange, Type falloffFactor)
     {
         Type Min, Max;
         GetMinMax(Min, Max);
+
 
         if (Max <= Min) {
             return;
         }
 
+        Type terrainSize = m_rows * m_cols;
+
         Type MinMaxDelta = Max - Min;
         Type MinMaxRange = MaxRange - MinRange;
+        Type centerX = m_rows / 2.0;
+        Type centerY = m_cols / 2.0;
+        float maxDistance = std::sqrt(centerX * centerX + centerY * centerY);
 
-        for (int i = 0; i < m_rows * m_cols; i++) {
-            m_p[i] = ((m_p[i] - Min) / MinMaxDelta) * MinMaxRange + MinRange;
+        for (int y = 0; y < m_rows; ++y) {
+            for (int x = 0; x < m_cols; ++x) {
+                int index = y * m_rows + x;
+                       
+                float distanceX = x - centerX;
+                float distanceY = y - centerY;
+                float distance = std::sqrt(distanceX * distanceX + distanceY * distanceY);
+
+                float falloff = 1.0f - std::pow(distance / maxDistance, falloffFactor);
+
+                m_p[index] = ((m_p[index] - Min) / MinMaxDelta) * (MaxRange - MinRange) * falloff + MinRange;
+
+
+            }
         }
+
     }
 
     void PrintFloat()
