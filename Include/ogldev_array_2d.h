@@ -204,8 +204,6 @@ public:
                 float falloff = 1.0f - std::pow(distance / maxDistance, falloffFactor);
 
                 m_p[index] = ((m_p[index] - Min) / MinMaxDelta) * (MaxRange - MinRange) * falloff + MinRange;
-
-
             }
         }
 

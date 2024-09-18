@@ -15,9 +15,6 @@ void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchS
 
 	CreateMidpointDisplacementF32(Roughness);
 
-	//AdjustOutterHeightMap(GetWaterHeight());
-	//ApplyIslandFalloff(scale);
-
 	for (int i = 0; i < 20; i++)		//smoothening interations
 	{
 		SmoothHeightMap(0.005, true);		//smoothening factor
@@ -29,13 +26,11 @@ void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int PatchS
 	Finalize();
 }
 
-
 void MidpointDispTerrain::CreateMidpointDisplacementF32(float Roughness)
 {
 	int RectSize = CalcNextPowerOfTwo(m_terrainSize);
 	float CurHeight = (float)RectSize / 2.0f;
 	float HeightReduce = pow(2.0f, -Roughness * 0.7f); // Reduce roughness impact
-
 
 	while (RectSize > 0) {
 
@@ -48,7 +43,6 @@ void MidpointDispTerrain::CreateMidpointDisplacementF32(float Roughness)
 	}
 }
 
-
 float MidpointDispTerrain::Falloff(float x, float y, float maxDistance) {
 	float center_x = m_terrainSize / 2.0f;
 	float center_y = m_terrainSize / 2.0f;
@@ -58,6 +52,7 @@ float MidpointDispTerrain::Falloff(float x, float y, float maxDistance) {
 	float distance = sqrt((x - center_x) * (x - center_x) + (y - center_y) * (y - center_y));
 	float normalizedDistance = distance / maxDistance;
 	float falloff;
+
 	// Quadratic plateau falloff
 	if (normalizedDistance <= threshold) {
 		falloff = 1.0f;
@@ -158,7 +153,6 @@ void MidpointDispTerrain::SquareStep(int RectSize, float CurHeight)
 	}
 }
 
-
 void MidpointDispTerrain::SmoothHeightMap(float threshold, bool isFirst) {
 	Array2D<float> tempMap = m_heightMap;
 	int borderSize = m_terrainSize / 8;
@@ -183,7 +177,6 @@ void MidpointDispTerrain::SmoothHeightMap(float threshold, bool isFirst) {
 	for (int y = 1; y < m_terrainSize - 1; ++y) {
 		for (int x = 1; x < m_terrainSize - 1; ++x) {
 			float currentValue = m_heightMap.Get(x, y);
-
 			// values of all eight neighbors
 			float left = m_heightMap.Get(x - 1, y);
 			float right = m_heightMap.Get(x + 1, y);
@@ -252,8 +245,6 @@ float MidpointDispTerrain::RadialFalloff(float x, float y, float size, float min
 
 	return adjustedFalloff;
 }
-
-
 
 void MidpointDispTerrain::ApplyIslandFalloff(float scale) {
 	float waterHeight = GetWaterHeight(); 

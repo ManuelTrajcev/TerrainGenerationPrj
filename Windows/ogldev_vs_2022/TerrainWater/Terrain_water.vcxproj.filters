@@ -48,7 +48,7 @@
     <ClCompile Include="..\..\..\TerrainWater\simple_water_technique.cpp" />
     <ClCompile Include="..\..\..\TerrainWater\terrain.cpp" />
     <ClCompile Include="..\..\..\TerrainWater\terrain_technique.cpp" />
-    <ClCompile Include="..\..\..\TerrainWater\terrain_water.cpp" />
+    <ClCompile Include="..\..\..\TerrainWater\Island_terrain.cpp" />
     <ClCompile Include="..\..\..\TerrainWater\triangle_list.cpp" />
   </ItemGroup>
   <ItemGroup>

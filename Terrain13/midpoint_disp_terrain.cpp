@@ -34,7 +34,7 @@ void MidpointDispTerrain::CreateMidpointDisplacement(int TerrainSize, int NumPat
 
     CreateMidpointDisplacementF32(Roughness);
 
-    m_heightMap.Normalize(MinHeight, MaxHeight);
+    m_heightMap.Normalize(MinHeight, MaxHeight, 1.0);
 
     Finalize();    
 }

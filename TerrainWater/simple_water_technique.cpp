@@ -2,10 +2,7 @@
 #include "simple_water_technique.h"
 
 
-SimpleWaterTechnique::SimpleWaterTechnique()
-{
-}
-
+SimpleWaterTechnique::SimpleWaterTechnique() {}
 
 bool SimpleWaterTechnique::Init()
 {
@@ -35,7 +32,7 @@ bool SimpleWaterTechnique::Init()
     m_cameraPosLoc = GetUniformLocation("gCameraPos");
     m_lightColorLoc = GetUniformLocation("gLightColor");
     m_reversedLightDirLoc = GetUniformLocation("gReversedLightDir");
-    m_depthMapTexUnitLoc = GetUniformLocation("gDepthMap");     //PROBLEM
+    m_depthMapTexUnitLoc = GetUniformLocation("gDepthMap");  
 
 
     if (m_VPLoc == INVALID_UNIFORM_LOCATION ||
@@ -55,60 +52,50 @@ bool SimpleWaterTechnique::Init()
     return true;
 }
 
-
 void SimpleWaterTechnique::SetVP(const Matrix4f& VP)
 {
     glUniformMatrix4fv(m_VPLoc, 1, GL_TRUE, (const GLfloat*)VP.m);
 }
-
 
 void SimpleWaterTechnique::SetReflectionTextureUnit(unsigned int TextureUnit)
 {
     glUniform1i(m_reflectionTexUnitLoc, TextureUnit);
 }
 
-
 void SimpleWaterTechnique::SetRefractionTextureUnit(unsigned int TextureUnit)
 {
     glUniform1i(m_refractionTexUnitLoc, TextureUnit);
 }
-
 
 void SimpleWaterTechnique::SetWaterHeight(float Height)
 {
     glUniform1f(m_heightLoc, Height);
 }
 
-
 void SimpleWaterTechnique::SetDUDVMapTextureUnit(unsigned int TextureUnit)
 {
     glUniform1i(m_dudvMapTexUnitLoc, TextureUnit);
 }
-
 
 void SimpleWaterTechnique::SetDUDVOffset(float Offset)
 {
     glUniform1f(m_dudvOffsetLoc, Offset);
 }
 
-
 void SimpleWaterTechnique::SetCameraPos(const Vector3f& CameraPos)
 {
     glUniform3f(m_cameraPosLoc, CameraPos.x, CameraPos.y, CameraPos.z );
 }
-
 
 void SimpleWaterTechnique::SetNormalMapTextureUnit(unsigned int TextureUnit)
 {
     glUniform1i(m_normalMapTexUnitLoc, TextureUnit);
 }
 
-
 void SimpleWaterTechnique::SetLightColor(const Vector3f& LightColor)
 {
     glUniform3f(m_lightColorLoc, LightColor.x, LightColor.y, LightColor.z);
 }
-
 
 void SimpleWaterTechnique::SetLightDir(const Vector3f& LightDir)
 {
@@ -116,7 +103,6 @@ void SimpleWaterTechnique::SetLightDir(const Vector3f& LightDir)
     ReversedLightDir.Normalize();
     glUniform3f(m_reversedLightDirLoc, ReversedLightDir.x, ReversedLightDir.y, ReversedLightDir.z);
 }
-
 
 void SimpleWaterTechnique::SetDepthMapTextureUnit(unsigned int TextureUnit)
 {

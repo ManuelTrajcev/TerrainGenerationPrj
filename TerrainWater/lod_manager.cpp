@@ -23,7 +23,6 @@ int LodManager::InitLodManager(int PatchSize, int NumPatchesX, int NumPatchesZ, 
     return m_maxLOD;
 }
 
-
 void LodManager::CalcMaxLOD()
 {
     int NumSegments = m_patchSize - 1;
@@ -37,16 +36,13 @@ void LodManager::CalcMaxLOD()
     printf("log2 of patch size %d is %d\n", m_patchSize, patchSizeLog2);
     m_maxLOD = patchSizeLog2 - 1;
 
-   // printf("max lod %d\n", m_maxLOD);
 }
-
 
 void LodManager::Update(const Vector3f& CameraPos)
 {
     UpdateLodMapPass1(CameraPos);
     UpdateLodMapPass2(CameraPos);
 }
-
 
 void LodManager::UpdateLodMapPass1(const Vector3f& CameraPos)
 {
@@ -126,7 +122,6 @@ void LodManager::UpdateLodMapPass2(const Vector3f& CameraPos)
     }
 }
 
-
 void LodManager::PrintLodMap()
 {
     for (int LodMapZ = m_numPatchesZ - 1 ; LodMapZ >= 0 ; LodMapZ--) {
@@ -137,7 +132,6 @@ void LodManager::PrintLodMap()
         printf("\n");
     }
 }
-
 
 int LodManager::DistanceToLod(float Distance)
 {
@@ -153,12 +147,10 @@ int LodManager::DistanceToLod(float Distance)
     return Lod;
 }
 
-
 const LodManager::PatchLod& LodManager::GetPatchLod(int PatchX, int PatchZ) const
 {
     return m_map.Get(PatchX, PatchZ);
 }
-
 
 void LodManager::CalcLodRegions()
 {

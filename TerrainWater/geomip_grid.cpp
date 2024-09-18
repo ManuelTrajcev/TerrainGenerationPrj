@@ -8,16 +8,12 @@
 int gShowPoints = 0;
 
 
-GeomipGrid::GeomipGrid()
-{
-}
-
+GeomipGrid::GeomipGrid(){}
 
 GeomipGrid::~GeomipGrid()
 {
     Destroy();
 }
-
 
 void GeomipGrid::Destroy()
 {
@@ -33,7 +29,6 @@ void GeomipGrid::Destroy()
         glDeleteBuffers(1, &m_ib);
     }
 }
-
 
 void GeomipGrid::CreateGeomipGrid(int Width, int Depth, int PatchSize, const BaseTerrain* pTerrain)
 {
@@ -82,7 +77,6 @@ void GeomipGrid::CreateGeomipGrid(int Width, int Depth, int PatchSize, const Bas
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
-
 void GeomipGrid::CreateGLState()
 {
     glGenVertexArrays(1, &m_vao);
@@ -115,7 +109,6 @@ void GeomipGrid::CreateGLState()
     NumFloats += 3;
 }
 
-
 void GeomipGrid::PopulateBuffers(const BaseTerrain* pTerrain)
 {
     std::vector<Vertex> Vertices;
@@ -137,7 +130,6 @@ void GeomipGrid::PopulateBuffers(const BaseTerrain* pTerrain)
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices[0]) * NumIndices, &Indices[0], GL_STATIC_DRAW);
 }
 
-
 int GeomipGrid::CalcNumIndices()
 {
     int NumQuads = (m_patchSize - 1) * (m_patchSize - 1);
@@ -153,7 +145,6 @@ int GeomipGrid::CalcNumIndices()
     return NumIndices;
 }
 
-
 void GeomipGrid::Vertex::InitVertex(const BaseTerrain* pTerrain, int x, int z)
 {
     float y = pTerrain->GetHeight(x, z);
@@ -165,7 +156,6 @@ void GeomipGrid::Vertex::InitVertex(const BaseTerrain* pTerrain, int x, int z)
     float TextureScale = pTerrain->GetTextureScale();
     Tex = Vector2f(TextureScale * (float)x / Size, TextureScale * (float)z / Size);	
 }
-
 
 void GeomipGrid::InitVertices(const BaseTerrain* pTerrain, std::vector<Vertex>& Vertices)
 {
@@ -181,7 +171,6 @@ void GeomipGrid::InitVertices(const BaseTerrain* pTerrain, std::vector<Vertex>& 
 
     assert(Index == Vertices.size());
 }
-
 
 int GeomipGrid::InitIndices(std::vector<unsigned int>& Indices)
 {
@@ -219,7 +208,6 @@ int GeomipGrid::InitIndicesLOD(int Index, std::vector<unsigned int>& Indices, in
     return Index;
 }
 
-
 int GeomipGrid::InitIndicesLODSingle(int Index, std::vector<unsigned int>& Indices, int lodCore, int lodLeft, int lodRight, int lodTop, int lodBottom)
 {
     int FanStep = powi(2, lodCore + 1);   // lod = 0 --> 2, lod = 1 --> 4, lod = 2 --> 8, etc
@@ -235,10 +223,8 @@ int GeomipGrid::InitIndicesLODSingle(int Index, std::vector<unsigned int>& Indic
             Index = CreateTriangleFan(Index, Indices, lodCore, lLeft, lRight, lTop, lBottom, x, z);
         }
     }
-
     return Index;
 }
-
 
 uint GeomipGrid::CreateTriangleFan(int Index, std::vector<unsigned int>& Indices, int lodCore, int lodLeft, int lodRight, int lodTop, int lodBottom, int x, int z)
 {
@@ -464,6 +450,3 @@ bool GeomipGrid::IsPatchInsideViewFrustum_WorldSpace(int X, int Z, const Frustum
 
     return InsideViewFrustm;
 }
-
-
-

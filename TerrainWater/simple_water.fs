@@ -15,20 +15,17 @@ uniform vec3 gReversedLightDir;     //fromLightVector
 uniform sampler2D gDepthMap;
 uniform sampler2D gNormalMap;
 
-
 const float WaveLength  = 0.02;
 const float Shininess  = 20.0;
 const float Reflectivity = 1.6;
 
-
 void main()
 {
     
-    vec2 NDCCoords = (ClipSpaceCoords.xy / ClipSpaceCoords.w) / 2.0f + 0.5f;      //Normalized device coordinates (screen cords
+    vec2 NDCCoords = (ClipSpaceCoords.xy / ClipSpaceCoords.w) / 2.0f + 0.5f;      //Normalized device coordinates (screen cords)
     vec2 RefractionTexCoords = NDCCoords.xy;
     vec2 ReflectionTexCoords = RefractionTexCoords;
     ReflectionTexCoords.y = 1.0 - ReflectionTexCoords.y;
-   
    
     float Depth = texture(gDepthMap, RefractionTexCoords).r;        //number between 0 and 1, r - red component from the texture
     
@@ -60,10 +57,8 @@ void main()
     SpecularFactor = pow(SpecularFactor, Shininess);
     vec4 SpecularColor = vec4(gLightColor * SpecularFactor * Reflectivity * clamp(FloorToWaterSurface / 10.0, 0.0, 1.0), 0.0);
 
- 
     FragColor = mix(reflectionColor, refractionColor, 0.5);
     FragColor = mix(FragColor, vec4(0.0, 0.3, 0.5, 1.0), 0.2) + SpecularColor;   //Mix with blue-green color
-    FragColor.a = clamp(FloorToWaterSurface / 10.0, 0.0, 1.0);       //Deeper water - darker
-    //    FragColor = vec4(1.0, 1.0, 1.0, 1.0);       
+    FragColor.a = clamp(FloorToWaterSurface / 10.0, 0.0, 1.0);       //Deeper water -  darker color    
 
 }

@@ -46,7 +46,7 @@ void BaseTerrain::InitTerrain(float WorldScale, float TextureScale, const std::v
     }
 
 
-    m_pSkydome = new Skydome(8, 32, 1.0f, "../Content/textures/Starbasesnow.png", COLOR_TEXTURE_UNIT_0, COLOR_TEXTURE_UNIT_INDEX_0);
+    m_pSkydome = new Skydome(8, 32, 1.0f, "../Content/textures/kloofendal_48d_partly_cloudy_puresky_4k.jpg", COLOR_TEXTURE_UNIT_0, COLOR_TEXTURE_UNIT_INDEX_0);
 }
 
 

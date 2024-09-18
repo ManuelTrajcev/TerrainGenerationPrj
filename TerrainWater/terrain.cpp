@@ -48,7 +48,7 @@ void BaseTerrain::InitTerrain(float WorldScale, float TextureScale, const std::v
 	}
 
 	//m_pSkydome = new Skydome(8, 32, 1.0f, "../Content/textures/kloofendal_48d_partly_cloudy_puresky_4k.jpg", SKYDOME_TEXTURE_UNIT, SKYDOME_TEXTURE_UNIT_INDEX);
-	m_pSkydome = new Skydome(8, 32, 1.0f, "../Content/textures/143_hdrmaps_com_free_10K.jpg",
+	m_pSkydome = new Skydome(8, 32, 0.5f, "../Content/textures/143_hdrmaps_com_free_10K.jpg",
 		SKYDOME_TEXTURE_UNIT, SKYDOME_TEXTURE_UNIT_INDEX);
 
 #define GUI_WIDTH  600

@@ -28,20 +28,16 @@ static int g_seed = 0;
 
 extern int gShowPoints;
 
-
 class TerrainWater
 {
 public:
 
-	TerrainWater()
-	{
-	}
+	TerrainWater() {}
 
 	virtual ~TerrainWater()
 	{
 		SAFE_DELETE(m_pGameCamera);
 	}
-
 
 	void Init()
 	{
@@ -55,7 +51,6 @@ public:
 
 		InitGUI();
 	}
-
 
 	void Run()
 	{
@@ -80,11 +75,10 @@ public:
 				ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, 500.0f);
 				m_terrain.SetWaterHeight(m_waterHeight);
 
-				ImGui::SliderFloat("MaxHeight", &this->m_maxHeight, 100.0f, 1000.0f);
+				ImGui::SliderFloat("MaxHeight", &this->m_maxHeight, 100.0f, 2000.0f);
 				ImGui::SliderFloat("Roughness", &this->m_roughness, 0.5f, 2.5f);
 				ImGui::SliderFloat("Falloff Factor", &this->m_falloffFactor, 0.0f, 2.0f);
 	
-
 				if (ImGui::Button("Generate")) {
 					InitTerrain();
 				}
@@ -98,7 +92,6 @@ public:
 				glViewport(0, 0, display_w, display_h);
 				ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 			}
-
 			glfwSwapBuffers(window);
 		}
 	}
@@ -212,7 +205,6 @@ public:
 				moveCamera = !moveCamera;
 				break;
 			}
-
 		}
 
 		bool CameraChangedPos = m_pGameCamera->OnKeyboard(key);
@@ -222,11 +214,7 @@ public:
 		}
 	}
 
-
-	void MouseCB(int button, int action, int x, int y)
-	{
-	}
-
+	void MouseCB(int button, int action, int x, int y) {}
 
 private:
 
@@ -240,14 +228,12 @@ private:
 		glfwSetCursorPos(window, WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2);
 	}
 
-
 	void InitCallbacks()
 	{
 		glfwSetKeyCallback(window, KeyCallback);
 		glfwSetCursorPosCallback(window, CursorPosCallback);
 		glfwSetMouseButtonCallback(window, MouseButtonCallback);
 	}
-
 
 	void InitCamera()
 	{
@@ -259,10 +245,8 @@ private:
 		float zNear = 1.0f;
 		float zFar = Z_FAR;
 		PersProjInfo persProjInfo = { FOV, (float)WINDOW_WIDTH, (float)WINDOW_HEIGHT, zNear, zFar };
-
 		m_pGameCamera = new BasicCamera(persProjInfo, Pos, Target, Up);
 	}
-
 
 	void InitTerrain()
 	{
@@ -289,18 +273,14 @@ private:
 		m_terrain.ControlGUI(m_guiEnabled);
 	}
 
-
 	void InitGUI()
 	{
 		IMGUI_CHECKVERSION();
 		ImGui::CreateContext();
 		ImGuiIO& io = ImGui::GetIO(); (void)io;
-		//io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;     // Enable Keyboard Controls
 
-		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();
 
-		// Setup Platform/Renderer backends
 		ImGui_ImplGlfw_InitForOpenGL(window, true);
 		const char* glsl_version = "#version 130";
 		ImGui_ImplOpenGL3_Init(glsl_version);
@@ -317,13 +297,11 @@ private:
 		glfwMakeContextCurrent(imguiWindow);
 		glfwSwapInterval(1);
 
-		// Initialize OpenGL loader (GLEW)
 		if (glewInit() != GLEW_OK) {
 			fprintf(stderr, "Failed to initialize OpenGL loader!\n");
 			return;
 		}
 
-		// Initialize ImGui context for this window
 		ImGui::CreateContext();
 		ImGui_ImplGlfw_InitForOpenGL(imguiWindow, true);
 		const char* glsl_version = "#version 130";
@@ -343,7 +321,7 @@ private:
 		ImGui::GetStyle().Colors[ImGuiCol_WindowBg].w = 0.5f; // 50% transparent
 
 		static int Iterations = 100;
-		static float MaxHeight = 200.0f;
+		static float MaxHeight = 500.0f;
 		static float Roughness = 1.5f;
 		static float FalloffFactor = 1.0f;
 
@@ -387,12 +365,12 @@ private:
 	int m_terrainSize = 1025;	//2n*1024 + 1
 	float m_roughness = 1.5f;
 	float m_minHeight = 0.0f;
-	float m_maxHeight = 500.0f;
+	float m_maxHeight = 1000.0f;
 	float m_falloffFactor = 1.0f;
 	int m_patchSize = 33;
 	float m_counter = 0.0f;
 	bool m_constrainCamera = false;
-	float m_waterHeight = 200.0f;
+	float m_waterHeight = 250.0f;
 	bool m_guiEnabled = false;
 };
 
@@ -403,12 +381,10 @@ static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, i
 	app->KeyboardCB(key, action);
 }
 
-
 static void CursorPosCallback(GLFWwindow* window, double x, double y)
 {
 	app->PassiveMouseCB((int)x, (int)y);
 }
-
 
 static void MouseButtonCallback(GLFWwindow* window, int Button, int Action, int Mode)
 {
@@ -418,7 +394,6 @@ static void MouseButtonCallback(GLFWwindow* window, int Button, int Action, int 
 
 	app->MouseCB(Button, Action, (int)x, (int)y);
 }
-
 
 int main(int argc, char** argv)
 {
@@ -432,7 +407,6 @@ int main(int argc, char** argv)
 	srand(g_seed);
 
 	app = new TerrainWater();
-
 	app->Init();
 
 	glClearColor(135.0f / 255.0f, 206.0f / 255.0f, 235.0f / 255.0f, 0.0f);
@@ -445,6 +419,5 @@ int main(int argc, char** argv)
 	app->Run();
 
 	delete app;
-
 	return 0;
 }

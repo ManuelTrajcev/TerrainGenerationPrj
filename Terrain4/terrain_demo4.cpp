@@ -259,15 +259,8 @@ private:
         TextureGenerator TexGen;
 
         TexGen.LoadTile("../Content/textures/rock02_2.jpg");
-        //TexGen.LoadTile("../Content/textures/IMGP5487_seamless.jpg");
-        //TexGen.LoadTile("../Content/textures/IMGP5525_seamless.jpg");
         TexGen.LoadTile("../Content/textures/rock01.jpg");
-        
         TexGen.LoadTile("../Content/textures/tilable-IMG_0044-verydark.png");
-
-       // TexGen.LoadTile("../Content/textures/grass1.jpg");
-        //TexGen.LoadTile("../Content/textures/Rock6.png");
-        
         TexGen.LoadTile("../Content/textures/water.png");
         int TextureSize = 1024;
 

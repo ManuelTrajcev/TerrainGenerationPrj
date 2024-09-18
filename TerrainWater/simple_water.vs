@@ -17,7 +17,7 @@ void main()
 {
     vec3 NewPosition = (Position + vec3(0.0, gHeight, 0.0));
     ClipSpaceCoords = gVP * vec4(NewPosition, 1.0);
-    gl_ClipDistance[0] = 1;         //FIXED!!!
+    gl_ClipDistance[0] = 1;    
     gl_Position = ClipSpaceCoords;
     oTex = TexCoord * Tiling;
     oVertexToCamera = gCameraPos - NewPosition;
