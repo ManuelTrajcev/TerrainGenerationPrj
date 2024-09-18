@@ -70,6 +70,7 @@ public:
 				static float MaxHeight = 500.0f;
 				static float Roughness = 1.5f;
 
+				ImGui::SetNextWindowSize(ImVec2(400, 170));
 				ImGui::Begin("Island Terrain");
 
 				ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, 500.0f);
@@ -77,7 +78,7 @@ public:
 
 				ImGui::SliderFloat("MaxHeight", &this->m_maxHeight, 100.0f, 2000.0f);
 				ImGui::SliderFloat("Roughness", &this->m_roughness, 0.5f, 2.5f);
-				ImGui::SliderFloat("Falloff Factor", &this->m_falloffFactor, 0.0f, 2.0f);
+				ImGui::SliderFloat("Falloff Factor", &this->m_falloffFactor, 0.5f, 2.5f);
 	
 				if (ImGui::Button("Generate")) {
 					InitTerrain();
@@ -288,7 +289,7 @@ private:
 
 	void CreateImGuiWindow()
 	{
-		imguiWindow = glfwCreateWindow(800, 600, "ImGui Window", nullptr, nullptr);
+		imguiWindow = glfwCreateWindow(800, 500, "ImGui Window", nullptr, nullptr);
 		if (!imguiWindow) {
 			fprintf(stderr, "Failed to create GLFW window for ImGui\n");
 			return;
@@ -323,14 +324,14 @@ private:
 		static int Iterations = 100;
 		static float MaxHeight = 500.0f;
 		static float Roughness = 1.5f;
-		static float FalloffFactor = 1.0f;
+		static float FalloffFactor = 1.5f;
 
 		ImGui::Begin("Island Terrain");
 		ImGui::SliderFloat("Water height", &this->m_waterHeight, 0.0f, m_maxHeight);
 		m_terrain.SetWaterHeight(m_waterHeight);
 		ImGui::SliderFloat("MaxHeight", &MaxHeight, 0.0f, 1000.0f);
 		ImGui::SliderFloat("Roughness", &Roughness, 0.0f, 5.0f);
-		ImGui::SliderFloat("Falloff Factor", &FalloffFactor, 0.0f, 2.0f);
+		ImGui::SliderFloat("Falloff Factor", &FalloffFactor, 0.5f, 2.5f);
 		if (ImGui::Button("Generate")) {
 			m_terrain.Destroy();
 			InitTerrain();
@@ -366,7 +367,7 @@ private:
 	float m_roughness = 1.5f;
 	float m_minHeight = 0.0f;
 	float m_maxHeight = 1000.0f;
-	float m_falloffFactor = 1.0f;
+	float m_falloffFactor = 1.5f;
 	int m_patchSize = 33;
 	float m_counter = 0.0f;
 	bool m_constrainCamera = false;

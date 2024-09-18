@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\Windows\\ogldev_vs_2022\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9D07DEB5-FA82-4C36-ADF5-D9227489653C}|TerrainWater\\Terrain_water.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{9D07DEB5-FA82-4C36-ADF5-D9227489653C}|TerrainWater\\Terrain_water.vcxproj|C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\Island_terrain.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,14 +30,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "midpoint_disp_terrain.cpp",
-              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.cpp",
-              "RelativeDocumentMoniker": "..\\..\\TerrainWater\\midpoint_disp_terrain.cpp",
-              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\midpoint_disp_terrain.cpp",
-              "RelativeToolTip": "..\\..\\TerrainWater\\midpoint_disp_terrain.cpp",
-              "ViewState": "AQIAANgAAAAAAAAAAADwv/YAAAABAAAA",
+              "Title": "Island_terrain.cpp",
+              "DocumentMoniker": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\Island_terrain.cpp",
+              "RelativeDocumentMoniker": "..\\..\\TerrainWater\\Island_terrain.cpp",
+              "ToolTip": "C:\\MANUEL\\FINKI\\SEMESTAR IV\\KOMPJUTERSKA GRAFIKA\\TerrainGenerationProject\\ogldev\\TerrainWater\\Island_terrain.cpp*",
+              "RelativeToolTip": "..\\..\\TerrainWater\\Island_terrain.cpp*",
+              "ViewState": "AQIAADkAAAAAAAAAAADgv0gAAAArAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-09-18T08:56:18.663Z",
+              "WhenOpened": "2024-09-18T09:00:52.344Z",
               "EditorCaption": ""
             }
           ]
